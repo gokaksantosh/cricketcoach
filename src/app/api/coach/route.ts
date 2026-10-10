@@ -15,7 +15,7 @@ export async function POST(request: Request) {
       ? (body.language as (typeof supportedLanguages)[number]["code"])
       : "en";
 
-    const { entry, answer } = getCoachReply(question, language);
+    const { entry, answer, known } = getCoachReply(question, language);
 
     return NextResponse.json({
       answer,
@@ -25,6 +25,7 @@ export async function POST(request: Request) {
       sources: entry.sources,
       videos: entry.videos,
       matchedId: entry.id,
+      known,
     });
   } catch (error) {
     console.error("Coach API error:", error);

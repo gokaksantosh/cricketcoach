@@ -16,7 +16,7 @@ export type KnowledgeSource = {
 
 export type KnowledgeEntry = {
   id: string;
-  category: "Laws" | "Batting" | "Bowling" | "Fielding";
+  category: "Laws" | "Batting" | "Bowling" | "Fielding" | "General";
   question: string;
   keywords: string[];
   answer: Record<SupportedLanguage, string>;
@@ -229,20 +229,133 @@ export const knowledgeEntries: KnowledgeEntry[] = [
       },
     ],
   },
+  {
+    id: "pull-shot",
+    category: "Batting",
+    question: "How do I play a pull shot?",
+    keywords: ["pull shot", "pull", "hook shot"],
+    answer: {
+      en: "A pull shot is played when the ball is short and in the hitting arc, usually from the chest height or above. The batter should keep the head still, get into a strong base, and use the top hand to control the direction while staying balanced for a clean connection.",
+      hi: "पुल शॉट तब खेला जाता है जब गेंद छोटी हो और हिटिंग आर्क में हो, आमतौर पर छाती की ऊंचाई या उससे ऊपर। बल्लेबाज को सिर स्थिर रखना चाहिए, मजबूत आधार बनाना चाहिए, और सही कनेक्शन के लिए ऊपरी हाथ से दिशा को नियंत्रित करना चाहिए।",
+      bn: "পুল শট খেলা হয় যখন বল ছোট হয় এবং হিটিং আর্কের মধ্যে থাকে, সাধারণত বুকের উচ্চতা বা তার উপরে। ব্যাটারকে মাথা স্থির রাখতে হবে, শক্তিশালী বেস তৈরি করতে হবে এবং পরিষ্কার সংযোগের জন্য উপরের হাত দিয়ে দিক নিয়ন্ত্রণ করতে হবে।",
+      ta: "புல் ஷாட் என்பது பந்து குறுகியதாகவும் தாக்கும் கோணத்தில் இருக்கும்போது விளையாடப்படுகிறது, பொதுவாக மார்பளவு உயரத்தில் அல்லது அதற்கு மேலே. பேட்டர் தலை நிமிர்ந்திருக்க வேண்டும், உறுதியான அடித்தளத்தை உருவாக்க வேண்டும், மேலும் தூய்மையான தொடர்பிற்காக மேல் கையைப் பயன்படுத்தி திசையை கட்டுப்படுத்த வேண்டும்.",
+      te: "పుల్ షాట్ బంతి చిన్నగా మరియు హిటింగ్ ఆర్క్‌లో ఉన్నప్పుడు ఆడతారు, సాధారణంగా ఛాతి ఎత్తు లేదా ఎక్కువ. బ్యాటర్ తలను నిశ్చలంగా ఉంచి, బలమైన బేస్‌లోకి రావాలి, మరియు స్పష్టమైన కనెక్షన్ కోసం టాప్ హ్యాండ్‌తో దిశను నియంత్రించాలి.",
+      de: "Ein Pull Shot wird gespielt, wenn der Ball kurz ist und in den Schlagbereich fällt, meist auf Brusthöhe oder darüber. Der Batter hält den Kopf ruhig, baut eine stabile Basis auf und steuert die Richtung mit der oberen Hand für eine saubere Verbindung.",
+    },
+    sources: [
+      { title: "Batting technique basics", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "How to play the pull shot", url: "https://www.youtube.com/results?search_query=cricket+pull+shot+technique" },
+    ],
+  },
+  {
+    id: "yorker",
+    category: "Bowling",
+    question: "What is a yorker in cricket?",
+    keywords: ["yorker", "full length yorker"],
+    answer: {
+      en: "A yorker is a full-length delivery that aims to hit the base of the stumps or just behind the batter's toes. It is a very attacking ball because it reduces the batter's time and makes scoring difficult.",
+      hi: "यॉकर एक फुल-लेंथ गेंद होती है जिसका उद्देश्य स्टंप के आधार या बल्लेबाज के पैर के पीछे लगना होता है। यह बहुत आक्रामक गेंद होती है क्योंकि यह बल्लेबाज को समय कम देती है और रन बनाना कठिन बना देती है।",
+      bn: "ইয়র্কার হলো একটি ফুল-লেংথ ডেলিভারি, যা স্টাম্পের গোড়া বা ব্যাটারের পায়ের ঠিক পেছনে পড়ার লক্ষ্য রাখে। এটি খুব আক্রমণাত্মক বল, কারণ এটি ব্যাটারকে কম সময় দেয় এবং রান বানানো কঠিন করে তোলে।",
+      ta: "யார்கர் என்பது முழு நீள டெலிவரி ஆகும், இது ஸ்டம்பின் அடிப்பகுதி அல்லது பேட்டரின் கால்களுக்கு பின்னால் அடித்துச் செல்லும். இது ஒரு மிகத் தாக்குதல் பந்தாகும், ஏனெனில் இது பேட்டருக்கு நேரத்தை குறைத்து, ரன் எடுப்பதை கடினமாக்குகிறது.",
+      te: "యార్కర్ అంటే పూర్తి పొడవు బంతి, ఇది స్టంప్స్‌ బేస్ లేదా బాటర్ పాదాల వెనుక తగిలేలా వేసే బంతి. ఇది చాలా ఆક્રમణాత్మక బంతి, ఎందుకంటే ఇది బాటర్‌కు సమయం తగ్గించి పరుగులు 어렵하게 చేస్తుంది.",
+      de: "Ein Yorker ist ein voller Ball, der gezielt auf die Basis der Stumps oder knapp hinter die Zehen des Schlagenden trifft. Er ist ein sehr aggressiver Ball, da er dem Batter wenig Zeit lässt und das Scoring erschwert.",
+    },
+    sources: [
+      { title: "Bowling full-length variations", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "Yorker bowling technique", url: "https://www.youtube.com/results?search_query=cricket+yorker+bowling+technique" },
+    ],
+  },
+  {
+    id: "bouncer",
+    category: "Bowling",
+    question: "What is a bouncer in cricket?",
+    keywords: ["bouncer", "short ball"],
+    answer: {
+      en: "A bouncer is a short-pitched delivery aimed above shoulder height, generally to unsettle the batter. It is permitted only if it is not too high and not dangerous, and the batter must protect themselves or play the ball carefully.",
+      hi: "बाउंसर एक छोटी और ऊँची गेंद होती है जो बल्लेबाज को असहज करने के लिए ऊपर की तरफ जाती है। यह तभी सही है जब यह बहुत ऊँची या खतरनाक न हो, और बल्लेबाज को खुद की सुरक्षा के साथ सावधानी से खेलना चाहिए।",
+      bn: "বাউন্সার হলো একটি শর্ট-পিচ ডেলিভারি, যা কাঁধের উপরে লক্ষ্য রেখে ফেলা হয় যাতে ব্যাটারকে অস্বস্তিতে ফেলা যায়। এটি তখনই বৈধ যদি খুব বেশি উঁচু বা বিপজ্জনক না হয়, এবং ব্যাটারকেও নিজের নিরাপত্তা নিয়ে সাবধানে খেলতে হয়।",
+      ta: "பவுன்சர் என்பது தோள்பட்டிக்கு மேல் aimed short-pitched delivery ஆகும், பேட்டரை குழப்புவதற்காக. இது மிகவும் உயரமாக அல்லது ஆபத்தானதாக இல்லாவிட்டால் மட்டுமே அனுமதிக்கப்படும், மேலும் பேட்டர் தன்னைப் பாதுகாத்துக் கொண்டு கவனமாக விளையாட வேண்டும்.",
+      te: "బౌన్సర్ అంటే కాలు లేదా భుజం ఎత్తుకు పైకి వెళ్లే షార్ట్-పిచ్డ్ బంతి, బాటర్‌ను కంగారు చేసేందుకు. ఇది చాలా ఎత్తుగా లేదా ప్రమాదకరంగా లేకపోతే మాత్రమే అనుమతించబడుతుంది; బాటర్ కూడా తన భద్రతను పాటిస్తూ జాగ్రత్తగా ఆడాలి.",
+      de: "Ein Bouncer ist ein kurz gespielter Ball, der oberhalb der Schulterhöhe gezielt wird, um den Schlagenden zu destabilisieren. Er ist nur dann erlaubt, wenn er nicht zu hoch oder gefährlich ist; der Batter muss sich schützen und vorsichtig spielen.",
+    },
+    sources: [
+      { title: "Short-ball bowling laws", url: "https://www.lords.org/mcc/the-laws-of-cricket" },
+    ],
+    videos: [
+      { title: "What is a bouncer?", url: "https://www.youtube.com/results?search_query=cricket+bouncer+explained" },
+    ],
+  },
+  {
+    id: "caught-behind",
+    category: "Fielding",
+    question: "What is a caught behind in cricket?",
+    keywords: ["caught behind", "caught behind wicket", "caught behind cricket"],
+    answer: {
+      en: "A caught behind is when the wicketkeeper or a fielder catches the ball after the batter has hit it and before it touches the ground. The wicketkeeper must have control and the dismissal is only legal if the catch is clean and within the rules.",
+      hi: "कैच बियॉन्ड तब होता है जब विकेटकीपर या फील्डर गेंद को बल्लेबाज द्वारा मारे जाने के बाद पकड़े, लेकिन यह जमीन से पहले पकड़ा जाए। यह dismissal तभी सही है जब कैच साफ़ हो और नियमों के अनुसार हो।",
+      bn: "কেট বেকড হলো যখন উইকেটকিপার বা ফিল্ডার বলটি ব্যাটার হিট করার পরে ধরেন, কিন্তু এটি মাটি স্পর্শ করার আগে। এই আউটটি বৈধ হতে হবে যদি ক্যাচ পরিষ্কার হয় এবং নিয়ম অনুযায়ী হয়।",
+      ta: "கேட்ச் பீஹைண்ட் என்பது பந்தை பேட்டர் அடித்த பிறகு, அது தரையைத் தொடுவதற்கு முன், விக்கெட் கீப்பர் அல்லது ஃபீல்டர் பிடிப்பது. கேட்ச் சுத்தமாகவும், விதிகளுக்கு உட்பட்டதாகவும் இருந்தால் மட்டுமே இந்த அவுட் செல்லுபடியாகும்.",
+      te: "కాచ్ బీహైండ్ అంటే బాటర్ బంతిని కొట్టిన తర్వాత, అది నేల స్పর্শకముందే వికెట్ కీపర్ లేదా ఫీల్డర్ పట్టుకోవడం. ఈ ఔట్ సరిగ్గా మరియు నియమాలను పాటించి తీసుకున్నట్లయితే మాత్రమే చెల్లుతుంది.",
+      de: "Ein Caught Behind ist, wenn der Wicketkeeper oder ein Fielder den Ball fängt, nachdem der Batter ihn geschlagen hat und bevor er den Boden berührt. Der Catch muss sauber und regelkonform erfolgen.",
+    },
+    sources: [
+      { title: "Fielding and wicketkeeping dismissal guide", url: "https://www.lords.org/mcc/the-laws-of-cricket" },
+    ],
+    videos: [
+      { title: "Caught behind explained", url: "https://www.youtube.com/results?search_query=cricket+caught+behind+explained" },
+    ],
+  },
 ];
+
+export const unsupportedKnowledgeEntry: KnowledgeEntry = {
+  id: "unsupported",
+  category: "General",
+  question: "Unsupported cricket question",
+  keywords: [],
+  answer: {
+    en: "I can answer only cricket questions that are covered in this knowledge base. Please ask about a specific law, batting, bowling, fielding, or cricket match topic from the supported list.",
+    hi: "मैं केवल उन क्रिकेट सवालों का जवाब दे सकता हूँ जो इस ज्ञान आधार में शामिल हैं। कृपया किसी विशेष कानून, बल्लेबाजी, गेंदबाजी, फील्डिंग या क्रिकेट मैच विषय से संबंधित प्रश्न पूछें।",
+    bn: "আমি কেবল সেই ক্রিকেট প্রশ্নের উত্তর দিতে পারি যা এই জ্ঞানভান্ডারে রয়েছে। দয়া করে নির্দিষ্ট আইন, ব্যাটিং, বোলিং, ফিল্ডিং বা ক্রিকেট ম্যাচ বিষয়ের প্রশ্ন জিজ্ঞাসা করুন।",
+    ta: "இந்த அறிவு அமைப்பில் உள்ள கிரிக்கெட் கேள்விகளுக்கு மட்டுமே நான் பதில் அளிக்க முடியும். தயவுசெய்து குறிப்பிட்ட விதி, பேட்டிங், பந்துவீச்சு, ஃபீல்டிங் அல்லது கிரிக்கெட் போட்டித் தலைப்புக்கு தொடர்பான கேள்வி கேளுங்கள்.",
+    te: "నేను ఈ జ్ఞానంతో సహా మాత్రమే క్రికెట్ ప్రశ్నలకు సమాధానం ఇవ్వగలను. దయచేసి నిర్దిష్ట చట్టం, బ్యాటింగ్, బౌలింగ్, ఫీల్డింగ్ లేదా క్రికెట్ మ్యాచ్ విషయంపై ప్రశ్న అడగండి.",
+    de: "Ich kann nur Fragen zu Themen beantworten, die in dieser Wissensbasis enthalten sind. Bitte stelle eine Frage zu einem bestimmten Regelwerk, Schlagmanöver, Bowling, Fielding oder einem Cricket-Match-Thema aus der unterstützten Auswahl.",
+  },
+  sources: [],
+  videos: [],
+};
 
 export function getCoachReply(input: string, language: SupportedLanguage) {
   const normalized = input.trim().toLowerCase();
 
-  const match =
-    knowledgeEntries.find((entry) =>
-      entry.keywords.some((keyword) => normalized.includes(keyword.toLowerCase())),
-    ) ?? knowledgeEntries[0];
+  if (!normalized) {
+    return {
+      entry: unsupportedKnowledgeEntry,
+      answer: unsupportedKnowledgeEntry.answer[language] ?? unsupportedKnowledgeEntry.answer.en,
+      known: false,
+    };
+  }
+
+  const match = knowledgeEntries.find((entry) =>
+    entry.keywords.some((keyword) => normalized.includes(keyword.toLowerCase())),
+  );
+
+  if (!match) {
+    return {
+      entry: unsupportedKnowledgeEntry,
+      answer: unsupportedKnowledgeEntry.answer[language] ?? unsupportedKnowledgeEntry.answer.en,
+      known: false,
+    };
+  }
 
   const answer = match.answer[language] ?? match.answer.en;
 
   return {
     entry: match,
     answer,
+    known: true,
   };
 }

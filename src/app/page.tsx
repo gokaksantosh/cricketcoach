@@ -91,6 +91,7 @@ export default function Home() {
         answer: string;
         category: string;
         videos: Array<{ title: string; url: string }>;
+        known?: boolean;
       };
 
       setMessages((current) => [

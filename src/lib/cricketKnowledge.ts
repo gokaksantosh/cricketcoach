@@ -299,7 +299,7 @@ export const knowledgeEntries: KnowledgeEntry[] = [
       hi: "कैच बियॉन्ड तब होता है जब विकेटकीपर या फील्डर गेंद को बल्लेबाज द्वारा मारे जाने के बाद पकड़े, लेकिन यह जमीन से पहले पकड़ा जाए। यह dismissal तभी सही है जब कैच साफ़ हो और नियमों के अनुसार हो।",
       bn: "কেট বেকড হলো যখন উইকেটকিপার বা ফিল্ডার বলটি ব্যাটার হিট করার পরে ধরেন, কিন্তু এটি মাটি স্পর্শ করার আগে। এই আউটটি বৈধ হতে হবে যদি ক্যাচ পরিষ্কার হয় এবং নিয়ম অনুযায়ী হয়।",
       ta: "கேட்ச் பீஹைண்ட் என்பது பந்தை பேட்டர் அடித்த பிறகு, அது தரையைத் தொடுவதற்கு முன், விக்கெட் கீப்பர் அல்லது ஃபீல்டர் பிடிப்பது. கேட்ச் சுத்தமாகவும், விதிகளுக்கு உட்பட்டதாகவும் இருந்தால் மட்டுமே இந்த அவுட் செல்லுபடியாகும்.",
-      te: "కాచ్ బీహైండ్ అంటే బాటర్ బంతిని కొట్టిన తర్వాత, అది నేల స్పর্শకముందే వికెట్ కీపర్ లేదా ఫీల్డర్ పట్టుకోవడం. ఈ ఔట్ సరిగ్గా మరియు నియమాలను పాటించి తీసుకున్నట్లయితే మాత్రమే చెల్లుతుంది.",
+      te: "కాచ్ బీహైండ్ అంటే బాటర్ బంతిని కొట్టిన తర్వాత, అది నేల స్పర్శకముందే వికెట్ కీపర్ లేదా ఫీల్డర్ పట్టుకోవడం. ఈ ఔట్ సరిగ్గా మరియు నియమాలను పాటించి తీసుకున్నట్లయితే మాత్రమే చెల్లుతుంది.",
       de: "Ein Caught Behind ist, wenn der Wicketkeeper oder ein Fielder den Ball fängt, nachdem der Batter ihn geschlagen hat und bevor er den Boden berührt. Der Catch muss sauber und regelkonform erfolgen.",
     },
     sources: [
@@ -307,6 +307,146 @@ export const knowledgeEntries: KnowledgeEntry[] = [
     ],
     videos: [
       { title: "Caught behind explained", url: "https://www.youtube.com/results?search_query=cricket+caught+behind+explained" },
+    ],
+  },
+  {
+    id: "wide-ball",
+    category: "Laws",
+    question: "What is a wide in cricket?",
+    keywords: ["wide", "wide ball", "too wide"],
+    answer: {
+      en: "A wide is called when a delivery is so far outside the batter's reach that the batter cannot reasonably play it. A wide is scored as one run to the batting side and is not counted as a legal delivery.",
+      hi: "वाइड तब दी जाती है जब गेंद बल्लेबाज की पहुंच से इतनी दूर होती है कि वह उसे उचित रूप से खेलने में सक्षम न हो। वाइड पर बल्लेबाजी टीम को एक रन मिलता है और यह वैध डिलीवरी नहीं गिनी जाती।",
+      bn: "ওয়াইড দেওয়া হয় যখন বল ব্যাটারের নাগালের বাইরে এত দূরে থাকে যে সে তা যুক্তিসঙ্গতভাবে খেলতে পারে না। ওয়াইডে ব্যাটিং দল এক রান পায় এবং এটি বৈধ ডেলিভারি হিসেবে গণ্য হয় না।",
+      ta: "வைட் என்பது பந்தை பேட்டர் எட்ட முடியாத அளவுக்கு தொலைவில் போகும்போது வழங்கப்படும். வைட் என்றால் பேட்டிங் அணிக்கு ஒரு ரன் கிடைக்கும், மேலும் அது சட்டப்பூர்வ டெலிவரி என்று கணக்கிடப்படாது.",
+      te: "వైడ్ అంటే బంతి బ్యాటర్‌కు అందని దూరంలో వెళ్లిపోయినప్పుడు ఇవ్వబడే నిర్ణయం. వైడ్‌లో బ్యాటింగ్ జట్టు ఒక రన్‌ను పొందుతుంది మరియు అది చెల్లుబాటైన బంతిగా గణించబడదు.",
+      de: "Ein Wide wird gegeben, wenn der Ball so weit außerhalb der Reichweite des Schlagenden liegt, dass dieser ihn nicht sinnvoll spielen kann. Ein Wide zählt als ein Run für die Schlagmannschaft und nicht als legaler Ball.",
+    },
+    sources: [
+      { title: "MCC Law 22 - Wide Ball", url: "https://www.lords.org/mcc/the-laws-of-cricket/law-22-wide-ball" },
+    ],
+    videos: [
+      { title: "Wide ball explained", url: "https://www.youtube.com/results?search_query=cricket+wide+ball+explained" },
+    ],
+  },
+  {
+    id: "boundary",
+    category: "General",
+    question: "What is a boundary in cricket?",
+    keywords: ["boundary", "four", "six", "4 runs", "6 runs"],
+    answer: {
+      en: "A boundary is scored when the ball reaches or crosses the rope after being hit by the batter. A boundary can be four runs if the ball touches the ground before the rope, or six runs if it clears the rope in the air without touching the ground.",
+      hi: "बाउंड्री तब होती है जब गेंद बल्लेबाज द्वारा हिट करने के बाद राउंडर या रोप को पार कर जाती है। अगर गेंद रोप से पहले जमीन से लगती है तो यह चार रन का होता है, और अगर हवा में बिना जमीन के रोप को पार करती है तो छह रन का होता है।",
+      bn: "বাউন্ডারি হলে বল ব্যাটার দ্বারা আঘাত করার পরে রোপ পার হয়ে যায়। যদি বল রোপের আগে মাটি স্পর্শ করে তবে এটি চার রান, আর যদি আকাশে মাটি ছাড়াই রোপ পার হয় তবে ছয় রান।",
+      ta: "பவுண்டரி என்பது பந்தை பேட்டர் அடித்த பிறகு, அது சர்வதேச எல்லையை கடந்து செல்வதைக் குறிக்கிறது. பந்து, கம்பத்தைத் தொடுவதற்கு முன் தரையில் படுந்தால் நான்கு ரன், காற்றில் தரையைத் தொடாமல் கடந்து சென்றால் ஆறு ரன்.",
+      te: "బౌండరీ అంటే బంతి బ్యాటర్ కొట్టిన తర్వాత బోర్డర్/రోప్‌ను దాటి వెళ్లినప్పుడు. బంతి నేలపై తగిలి రోప్‌లోకి వెళ్లినట్లయితే నాలుగు రన్స్, udaraలో నేలన తాకకుండా రోప్ దాటి వెళ్లితే ఆరు రన్స్.",
+      de: "Eine Boundary entsteht, wenn der Ball nach einem Schlag die Begrenzungslinie erreicht oder überschreitet. Ein Four zählt, wenn der Ball vor der Begrenzung den Boden berührt; ein Six, wenn er direkt ohne Bodenberührung über die Linie geht.",
+    },
+    sources: [
+      { title: "Scoring in cricket", url: "https://www.lords.org/mcc/the-laws-of-cricket" },
+    ],
+    videos: [
+      { title: "Understanding boundaries", url: "https://www.youtube.com/results?search_query=cricket+boundary+explained" },
+    ],
+  },
+  {
+    id: "crease",
+    category: "General",
+    question: "What is the crease in cricket?",
+    keywords: ["crease", "batting crease", "bowling crease", "popping crease"],
+    answer: {
+      en: "The crease is the marked line a batter must stay within to be safe and the line from which the bowler delivers the ball. A batter who steps outside the crease while running or before the ball is dislodged can be run out or judged to be out of position.",
+      hi: "क्रिज वह निशान है जिस पर बल्लेबाज सुरक्षित रहने के लिए रहता है और गेंदबाज गेंद फेंकने के लिए उस पर खड़ा होता है। बल्लेबाज अगर दौड़ते समय या गेंद गिराने से पहले क्रिज से बाहर जाता है, तो रन आउट या गलत स्थिति के लिए आउट किया जा सकता है।",
+      bn: "ক্রিজ হলো চিহ্নিত লাইন, যেখানে ব্যাটার নিরাপদ থাকতে হয় এবং বোলার বল ছোঁড়ার জন্য দাঁড়ায়। ব্যাটার যদি দৌড়ানোর সময় বা বল ছাড়ানোর আগে ক্রিজের বাইরে যায়, তবে রান-আউট বা ভুল অবস্থানের জন্য আউট হতে পারে।",
+      ta: "க்ரீஸ் என்பது பேட்டர் பாதுகாப்பாக இருக்க வேண்டிய குறிக்கப்பட்ட கோடு மற்றும் பந்துவீச்சாளர் பந்தை வீசும் கோடு. பேட்டர் ஓடும்போது அல்லது பந்தை வீசுவதற்கு முன் க்ரீஸுக்கு வெளியே சென்றால், ரன் அவுட் அல்லது தவறான நிலைப்பாடு காரணமாக அவுட் ஆகலாம்.",
+      te: "క్రీజ్ అనేది బ్యాటర్ సురక్షితంగా ఉండాల్సిన గుర్తించబడిన గీత మరియు బౌలర్ బంతిని వేశే గీత. బ్యాటర్ పరుగెత్తుతూ లేదా బంతిని వేశే ముందు క్రీజ్‌ బయటకు వెళితే రన్-అవుట్ లేదా తప్పు స్థానం కారణంగా ఔట్ అయ్యే అవకాశం ఉంటుంది.",
+      de: "Die Crease ist die Markierung, innerhalb der der Batter sicher stehen muss und von der der Bowler den Ball wirft. Verläuft ein Batter außerhalb der Crease, kann er beim Rennen oder bei der Ballung durch das Wicket aus dem Spiel genommen werden.",
+    },
+    sources: [
+      { title: "Crease and running area law", url: "https://www.lords.org/mcc/the-laws-of-cricket" },
+    ],
+    videos: [
+      { title: "Understanding the crease", url: "https://www.youtube.com/results?search_query=cricket+crease+explained" },
+    ],
+  },
+  {
+    id: "fielding-positions",
+    category: "Fielding",
+    question: "What are common fielding positions in cricket?",
+    keywords: ["fielding positions", "slip", "point", "cover point", "midwicket", "square leg", "short leg", "fine leg", "long on", "long off", "third man"],
+    answer: {
+      en: "Common fielding positions include slip, point, cover point, midwicket, square leg, short leg, fine leg, long on, long off, and third man. These positions are chosen based on the batter's style, the bowler's line, and the fielding strategy for stopping runs or creating chances.",
+      hi: "सामान्य फील्डिंग पोज़िशन में स्लिप, पॉइंट, कवर पॉइंट, मिडविकेट, स्क्वायर लेग, शॉर्ट लेग, फाइन लेग, लॉन्ग ऑन, लॉन्ग ऑफ़ और थर्ड मैन शामिल हैं। इन पोज़िशनों का चुनाव बल्लेबाज की शैली, गेंदबाज की लाइन और रन रोकने/चांस बनाने की रणनीति के आधार पर किया जाता है।",
+      bn: "সাধারণ ফিল্ডিং পজিশনে রয়েছে স্লিপ, পয়েন্ট, কভার পয়েন্ট, মিডউইকেট, স্কয়ার লেগ, শর্ট লেগ, ফাইন লেগ, লং অন, লং অফ এবং থার্ড ম্যান। এই অবস্থানগুলি ব্যাটারের স্টাইল, বোলারের লাইনের উপর এবং রান থামানোর বা উইকেটের সুযোগ তৈরি করার কৌশলের উপর নির্ভর করে বেছে নেওয়া হয়।",
+      ta: "சாதாரண ஃபீல்டிங் நிலைகள்: ஸ்லிப், பாயிண்ட், கவர் பாயிண்ட், மிட்விக்கெட், ஸ்கொயர் லெக், ஷார்ட் லெக், பைன் லெக், லாங் ஆன், லாங் ஆஃப் மற்றும் த்ரிட் மேன். இந்த நிலைகள் பேட்டரின் பாணி, பந்துவீச்சாளரின் கோடு மற்றும் ரன்களைத் தடுக்க/வாய்ப்புகளை உருவாக்கும் உத்தியைப் பொறுத்து தேர்ந்தெடுக்கப்படுகின்றன.",
+      te: "సాధారణ ఫీల్డింగ్ పొజిషన్లు: స్లిప్, పాయింట్, కవర్ పాయింట్, మిడ్వికెట్, స్క్వేర్ లెగ్, షార్ట్ లెగ్, ఫైన్ లెగ్, లాంగ్ ఆన్, లాంగ్ ఆఫ్ మరియు థర్డ్ మాన్. ఇవి బ్యాటర్ శైలి, బౌలర్‌లైన్ మరియు పరుగులను ఆపడానికి/వికెట్ అవకాశాలను సృష్టించడానికి వ్యూహం ఆధారంగా ఎంచుకుంటారు.",
+      de: "Häufige Feldpositionsnamen sind Slip, Point, Cover Point, Midwicket, Square Leg, Short Leg, Fine Leg, Long On, Long Off und Third Man. Diese Positionen werden je nach Schlagstil, Bowlinglinie und Feldstrategie gewählt.",
+    },
+    sources: [
+      { title: "Fielding positions and strategies", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "Understanding fielding positions", url: "https://www.youtube.com/results?search_query=cricket+fielding+positions+explained" },
+    ],
+  },
+  {
+    id: "leg-spin",
+    category: "Bowling",
+    question: "What is leg-spin in cricket?",
+    keywords: ["leg spin", "leg-spin", "legbreak", "leg break", "googly", "doosra", "slider"],
+    answer: {
+      en: "Leg-spin is a type of spin bowling where the ball is delivered with the wrist or fingers to make it turn from the leg side to the off side for a right-handed batter. Variations include the leg-break, googly, slider, and doosra, each changing the trajectory and amount of turn.",
+      hi: "लेग-स्पिन गेंदबाजी का एक प्रकार है जिसमें गेंद को कलाई या उंगलियों से इस तरह से फेंका जाता है कि यह दाहिने हाथ के बल्लेबाज के लिए लेग साइड से ऑफ साइड में मुड़ जाए। इसमें लेग-ब्रेक, गूगल, स्लाइडर और डूसरा जैसी विविधताएँ शामिल हैं।",
+      bn: "লেগ-স্পিন হলো স্পিন বোলিংয়ের একটি ধরনের, যেখানে বল কব্জি বা আঙুল দিয়ে এমনভাবে ফেলা হয় যাতে ডানহাতি ব্যাটারের জন্য লেগ সাইড থেকে অফ সাইডে ঘুরে যায়। এতে রয়েছে লেগ-ব্রেক, গুগলি, স্লাইডার এবং দুসরা ভ্যারিয়েশন।",
+      ta: "லெக்-ஸ்பின் என்பது ஸ்பின் பந்துவீச்சின் ஒரு வகையாகும், இதில் கையை அல்லது விரல்களைப் பயன்படுத்தி பந்து வலது கை பேட்டருக்கு லெக் சைட் முதல் ஆஃப் சைட் வரை திரும்பும் வகையில் வீசப்படுகிறது. லெக்-பிரேக், கூக்லி, ஸ்லைடர், டூச்ரா போன்ற வகைகள் இதில் உள்ளன.",
+      te: "లెగ్-స్పిన్ అనేది స్పిన్ బౌలింగ్ ఒక రకం, బంతిని మణికట్టు లేదా వేళ్లతో అలా వేస్తారు, అది కుడిచేతి బ్యాటర్‌కు లెగ్ సైడ్ నుండి ఆఫ్ సైడ్‌కు తిరుగుతుంది. లెగ్-బ్రేక్, గుగ్లీ, స్లైడర్, డూస్రా వంటివి ఇందులో ఉంటాయి.",
+      de: "Leg-Spin ist eine Art Spin-Bowling, bei der der Ball mit Handgelenk oder Fingern so gedreht wird, dass er von der Leg-Side zur Off-Side des rechtshändigen Schlagenden abdriftet. Variationen umfassen Leg-Break, Googly, Slider und Doosra.",
+    },
+    sources: [
+      { title: "Spin bowling fundamentals", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "Leg-spin basics", url: "https://www.youtube.com/results?search_query=cricket+leg+spin+basics" },
+    ],
+  },
+  {
+    id: "powerplay",
+    category: "General",
+    question: "What is a powerplay in cricket?",
+    keywords: ["powerplay", "power play"],
+    answer: {
+      en: "A powerplay is a set phase of an innings in limited-overs cricket where fielding restrictions are in place. During this period, only a limited number of fielders are allowed outside the inner ring, which encourages attacking batting and more scoring opportunities.",
+      hi: "पावरप्ले लिमिटेड ओवर क्रिकेट में एक निश्चित चरण होता है, जहाँ फील्डिंग पर सीमाएँ लगाई जाती हैं। इस दौरान अंदर की रिंग के बाहर केवल सीमित फील्डर को रखा जा सकता है, जिससे आक्रामक बल्लेबाजी और अधिक रन बनाने का अवसर मिलता है।",
+      bn: "পাওয়ারপ্লে হলো লিমিটেড ওভারের একটি নির্দিষ্ট পর্যায়, যেখানে ফিল্ডিং-এ সীমাবদ্ধতা থাকে। এই সময়ে ভিতরের রিংয়ের বাইরে কেবল সীমিত সংখ্যক ফিল্ডার রাখা যায়, যা আক্রমণাত্মক ব্যাটিং এবং বেশি রান পাওয়ার সুযোগ তৈরি করে।",
+      ta: "பவர் பிளே என்பது லிமிடெட் ஓவர் கிரிக்கெட்டில் ஒரு குறிப்பிட்ட கட்டமாகும், அப்போது ஃபீல்டிங்கில் கட்டுப்பாடுகள் இருக்கும். இந்த நேரத்தில் உள்ளார்ந்த வளையத்திற்கு வெளியே எண்ணிக்கையிடப்பட்ட ஃபீல்டர்கள் மட்டுமே இருக்க முடியும், இதனால் தாக்குதல் பேட்டிங் மற்றும் அதிக ரன்கள் கிடைக்கும்.",
+      te: "పవర్‌ప్లే అనేది లిమిటెడ్ ఓవర్ల క్రికెట్‌లో ఒక నిర్దిష్ట దశ, దీనిలో ఫీల్డింగ్‌కు పరిమితులు ఉంటాయి. ఈ సమయంలో లోపలి రింగ్ వెలుపల beperkte ఫీల్డర్లు మాత్రమే ఉంటారు, ఇది ఆক্রমణాత్మక బ్యాటింగ్‌ను ప్రోత్సహిస్తుంది.",
+      de: "Ein Powerplay ist eine festgelegte Phase im Limited-Overs-Cricket, in der die Feldpositionen eingeschränkt sind. In dieser Phase dürfen nur eine begrenzte Anzahl von Feldspielern außerhalb des inneren Rings stehen, was aggressives Schlagen und mehr Scoring-Chancen begünstigt.",
+    },
+    sources: [
+      { title: "Powerplay rules in limited overs", url: "https://www.icc-cricket.com/about/cricket/rules-and-regulations/playing-conditions" },
+    ],
+    videos: [
+      { title: "Powerplay explained", url: "https://www.youtube.com/results?search_query=cricket+powerplay+explained" },
+    ],
+  },
+  {
+    id: "over",
+    category: "General",
+    question: "What is an over in cricket?",
+    keywords: ["over", "six legal balls", "6-ball over"],
+    answer: {
+      en: "An over is a set of six legal deliveries bowled by one bowler. If a no-ball or wide is bowled, that ball does not count as a legal delivery toward the over, and the bowler must complete the remaining legal balls.",
+      hi: "ओवर एक गेंदबाज द्वारा फेंकी गई छह वैध डिलीवरी का समूह होता है। अगर नो-बॉल या वाइड फेंकी जाए, तो वह गेंद ओवर में वैध डिलीवरी नहीं गिनी जाती और गेंदबाज को शेष वैध गेंदें पूरी करनी पड़ती हैं।",
+      bn: "ওভার হলো একই বোলার কর্তৃক ফেলা ছয়টি বৈধ ডেলিভারির সেট। যদি নো-বল বা ওয়াইড হয়, তবে সে বল ওভারের মধ্যে বৈধ ডেলিভারি হিসেবে গণ্য হয় না এবং বোলারকে বাকি বৈধ বল পূরণ করতে হয়।",
+      ta: "ஒரு ஓவர் என்பது ஒரு பந்துவீச்சாளர் வீசிய ஆறு சட்டப்பூர்வ டெலிவரிகளின் தொகுப்பாகும். நா-பால் அல்லது வைட் வீசப்பட்டால், அந்த பந்தை ஓவரில் சட்டப்பூர்வமாகக் கணக்கிட முடியாது, மேலும் பந்துவீச்சாளர் மீதமுள்ள சட்டப்பூர்வ பந்துகளை முடிக்க வேண்டும்.",
+      te: "ఓవర్ అనేది ఒక బౌలర్ వేసిన ఆరు చెల్లుబాటు బంతుల సముదాయం. నో-బాల్ లేదా వైడ్ అయితే ఆ బంతి ఓవర్‌లో చెల్లుబాటు బంతిగా లెక్కించబడదు మరియు బౌలర్ మిగిలిన చెల్లుబాటు బంతులను పూర్తి చేయాలి.",
+      de: "Ein Over besteht aus sechs legalen Bällen, die derselbe Bowler wirft. Bei No-Ball oder Wide zählt dieser Ball nicht als legaler Ball des Over, und der Bowler muss die verbliebenen legalen Bälle noch absolvieren.",
+    },
+    sources: [
+      { title: "Over and bowling law", url: "https://www.lords.org/mcc/the-laws-of-cricket" },
+    ],
+    videos: [
+      { title: "What is an over?", url: "https://www.youtube.com/results?search_query=cricket+what+is+an+over" },
     ],
   },
 ];

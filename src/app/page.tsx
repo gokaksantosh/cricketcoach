@@ -64,7 +64,7 @@ export default function Home() {
     const trimmed = nextQuestion.trim();
     if (!trimmed) return;
 
-    setQuestion(trimmed);
+    setQuestion("");
     setMessages((current) => [
       ...current,
       { type: "user", text: trimmed },
@@ -123,6 +123,14 @@ export default function Home() {
     void askCoach(nextQuestion);
   };
 
+  const handleQuestionFocus = () => {
+    setQuestion((current) => (current === defaultQuestion ? "" : current));
+  };
+
+  const submitQuestion = () => {
+    void askCoach(question);
+  };
+
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50">
       <header className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/80 backdrop-blur">
@@ -154,88 +162,7 @@ export default function Home() {
       </header>
 
       <div className="mx-auto max-w-7xl px-4 pb-16 pt-10 sm:px-6 lg:px-8">
-        <section className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          <div>
-            <div className="inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-emerald-200">
-              Free • multilingual • mobile-first
-            </div>
-
-            <h1 className="mt-6 max-w-xl text-4xl font-black leading-tight text-white sm:text-5xl">
-              Learn cricket with a coach that answers from trusted rules and examples.
-            </h1>
-
-            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">
-              Ask about LBW, no-balls, batting technique, swing bowling, fielding decisions,
-              and match situations. The app blends open-source cricket documentation with
-              YouTube search references and multilingual answers.
-            </p>
-
-            <div className="mt-7 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => void askCoach(defaultQuestion)}
-                className="rounded-full bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
-              >
-                Ask coach
-              </button>
-              <a
-                href="#knowledge"
-                className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-              >
-                Explore knowledge
-              </a>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-2 text-xs text-slate-300">
-              {[
-                "MCC Laws",
-                "Open-source docs",
-                "YouTube references",
-                "Indian language support",
-                "Mobile-ready UX",
-              ].map((feature) => (
-                <span key={feature} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1.5">
-                  {feature}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <aside className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-2xl shadow-emerald-950/20">
-            <div className="rounded-2xl border border-emerald-400/20 bg-slate-900 p-4">
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-slate-400">
-                <span>Coach response</span>
-                <span>{messages[messages.length - 1]?.category ?? "Laws"}</span>
-              </div>
-
-              <p className="mt-5 text-lg font-semibold text-white">
-                {messages[messages.length - 1]?.type === "user"
-                  ? "Your question"
-                  : "Latest answer"}
-              </p>
-
-              <p className="mt-4 leading-7 text-slate-300">
-                {messages[messages.length - 1]?.text ?? "Ask a cricket question to begin."}
-              </p>
-
-              <div className="mt-5 space-y-2">
-                {(messages[messages.length - 1]?.videos ?? []).map((video) => (
-                  <a
-                    key={video.title}
-                    href={video.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block rounded-xl border border-white/10 bg-slate-800/80 px-3 py-2 text-sm text-emerald-200 transition hover:border-emerald-400/50 hover:bg-slate-800"
-                  >
-                    {video.title}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </aside>
-        </section>
-
-        <section id="coach" className="mt-14 rounded-3xl border border-white/10 bg-slate-900/70 p-5 sm:p-7">
+        <section id="coach" className="rounded-3xl border border-white/10 bg-slate-900/70 p-5 sm:p-7">
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.18em] text-emerald-300">Coach panel</p>
@@ -320,6 +247,13 @@ export default function Home() {
             <textarea
               value={question}
               onChange={(event) => setQuestion(event.target.value)}
+              onFocus={handleQuestionFocus}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" && !event.shiftKey) {
+                  event.preventDefault();
+                  submitQuestion();
+                }
+              }}
               rows={4}
               className="w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base text-white outline-none ring-0 placeholder:text-slate-500 focus:border-emerald-400"
               placeholder="Ask about a law, technique, or match situation"
@@ -342,13 +276,94 @@ export default function Home() {
 
             <button
               type="button"
-              onClick={() => void askCoach(question)}
+              onClick={submitQuestion}
               disabled={isLoading}
               className="rounded-full bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isLoading ? "Thinking..." : "Ask coach"}
             </button>
           </div>
+        </section>
+
+        <section className="mt-14 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          <div>
+            <div className="inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-emerald-200">
+              Free • multilingual • mobile-first
+            </div>
+
+            <h1 className="mt-6 max-w-xl text-4xl font-black leading-tight text-white sm:text-5xl">
+              Learn cricket with a coach that answers from trusted rules and examples.
+            </h1>
+
+            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">
+              Ask about LBW, no-balls, batting technique, swing bowling, fielding decisions,
+              and match situations. The app blends open-source cricket documentation with
+              YouTube search references and multilingual answers.
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => void askCoach(defaultQuestion)}
+                className="rounded-full bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
+              >
+                Ask coach
+              </button>
+              <a
+                href="#knowledge"
+                className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Explore knowledge
+              </a>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-2 text-xs text-slate-300">
+              {[
+                "MCC Laws",
+                "Open-source docs",
+                "YouTube references",
+                "Indian language support",
+                "Mobile-ready UX",
+              ].map((feature) => (
+                <span key={feature} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1.5">
+                  {feature}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <aside className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-2xl shadow-emerald-950/20">
+            <div className="rounded-2xl border border-emerald-400/20 bg-slate-900 p-4">
+              <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-slate-400">
+                <span>Coach response</span>
+                <span>{messages[messages.length - 1]?.category ?? "Laws"}</span>
+              </div>
+
+              <p className="mt-5 text-lg font-semibold text-white">
+                {messages[messages.length - 1]?.type === "user"
+                  ? "Your question"
+                  : "Latest answer"}
+              </p>
+
+              <p className="mt-4 leading-7 text-slate-300">
+                {messages[messages.length - 1]?.text ?? "Ask a cricket question to begin."}
+              </p>
+
+              <div className="mt-5 space-y-2">
+                {(messages[messages.length - 1]?.videos ?? []).map((video) => (
+                  <a
+                    key={video.title}
+                    href={video.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block rounded-xl border border-white/10 bg-slate-800/80 px-3 py-2 text-sm text-emerald-200 transition hover:border-emerald-400/50 hover:bg-slate-800"
+                  >
+                    {video.title}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </aside>
         </section>
 
         <section id="knowledge" className="mt-16">

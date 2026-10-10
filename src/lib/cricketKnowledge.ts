@@ -162,6 +162,40 @@ export const knowledgeEntries: KnowledgeEntry[] = [
     ],
   },
   {
+    id: "off-spin",
+    category: "Bowling",
+    question: "How do I bowl off-spin?",
+    keywords: ["off spin", "off-spin", "offspin", "off break", "off spinner"],
+    answer: {
+      en: "To bowl off-spin, land the ball on a good length around off stump, keep the wrist behind the ball, and use the fingers to create angle and drift. The goal is to turn the ball away from a right-handed batter and use the bounce and seam to create a wicket-taking chance.",
+      hi: "ऑफ-स्पिन गेंदबाजी के लिए गेंद को ऑफ स्टंप के आसपास अच्छे लेंथ पर डालें, कलाई को गेंद के पीछे रखें, और उंगली से एंगल और ड्रिफ्ट बनाएं। लक्ष्य यह है कि गेंद को दाहिने हाथ के बल्लेबाज से दूर मोड़ें और उछाल तथा सीम का उपयोग करके विकेट लेने का मौका बनाएं।",
+      bn: "অফ-স্পিন বোল করতে, অফ স্টাম্পের কাছাকাছি ভালো লেন্থে বল ফেলুন, কব্জি বলের পিছনে রাখুন, এবং আঙুল দিয়ে এंगल ও ড্রিফট তৈরি করুন। লক্ষ্য হলো ডানহাতি ব্যাটারের দিকে থেকে বলকে দূরে ঘুরিয়ে দেওয়া এবং বাউন্স ও সিমের সাহায্যে উইকেটের সুযোগ তৈরি করা।",
+      ta: "ஆஃப்-ஸ்பின் பந்துவீசுவதற்கு, ஆஃப் ஸ்டம்பிற்கு அருகே நல்ல லெங்தில் பந்தை வீசுங்கள், மணிக்கட்டை பந்துக்கு பின்னால் வைத்து, விரல்களால் கோணம் மற்றும் டிரிப்ட் உருவாக்குங்கள். இலக்கு, வலது கை பேட்டருக்கு அப்பால் பந்தை திருப்புவதும், பவுன்ஸ் மற்றும் சீமைப் பயன்படுத்தி விக்கெட் வாய்ப்பை உருவாக்குவதும் ஆகும்.",
+      te: "ఆఫ్-స్పిన్ బౌల్ చేయడానికి, ఆఫ్ స్టంప్ దగ్గర మంచి లెంగ్త్‌లో బంతిని పడవేయండి, మణికట్టును బంతి వెనుక ఉంచండి, మరియు వేళ్లతో కోణం మరియు డ్రిఫ్ట్‌ను సృష్టించండి. లక్ష్యం: కుడిచేతి బ్యాటర్ నుండి బంతిని వేరుగా తిప్పి, బౌన్స్ మరియు సీమను ఉపయోగించి వికెట్ అవకాశాన్ని సృష్టించడం.",
+      de: "Um Off-Spin zu bowlen, sollte der Ball auf guter Länge um den Off-Stump landen, das Handgelenk hinter dem Ball bleiben und mit den Fingern Winkel und Drift erzeugen. Ziel ist es, den Ball von einem rechtshändigen Batter wegzudrehen und mit Bounc e und Seam eine Wicket-Chance zu schaffen.",
+    },
+    sources: [
+      {
+        title: "Cricket coaching basics: off-spin grip and release",
+        url: "https://www.bbc.co.uk/sport/cricket",
+      },
+      {
+        title: "Bowling fundamentals guide",
+        url: "https://www.lords.org/mcc/the-laws-of-cricket",
+      },
+    ],
+    videos: [
+      {
+        title: "Off-spin bowling basics",
+        url: "https://www.youtube.com/results?search_query=cricket+off+spin+bowling+basics",
+      },
+      {
+        title: "How to grip and release off-spin",
+        url: "https://www.youtube.com/results?search_query=cricket+off+spin+grip+release",
+      },
+    ],
+  },
+  {
     id: "run-out",
     category: "Fielding",
     question: "What is a run-out in cricket?",

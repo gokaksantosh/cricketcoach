@@ -23,8 +23,6 @@ const officialSources = [
   },
 ];
 
-const defaultQuestion = "What is the LBW rule in cricket?";
-
 type ChatMessage = {
   type: "user" | "coach";
   text: string;
@@ -35,16 +33,9 @@ type ChatMessage = {
 export default function Home() {
   const [language, setLanguage] = useState<SupportedLanguage>("en");
   const [category, setCategory] = useState<string>("All");
-  const [question, setQuestion] = useState(defaultQuestion);
+  const [question, setQuestion] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      type: "coach",
-      text: getCoachReply(defaultQuestion, "en").answer,
-      category: "Laws",
-      videos: getCoachReply(defaultQuestion, "en").entry.videos,
-    },
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
 
   const categories = useMemo(
     () => ["All", ...new Set(knowledgeEntries.map((entry) => entry.category))],
@@ -124,10 +115,6 @@ export default function Home() {
     void askCoach(nextQuestion);
   };
 
-  const handleQuestionFocus = () => {
-    setQuestion((current) => (current === defaultQuestion ? "" : current));
-  };
-
   const submitQuestion = () => {
     void askCoach(question);
   };
@@ -154,9 +141,6 @@ export default function Home() {
             </a>
             <a href="#knowledge" className="transition hover:text-white">
               Knowledge Base
-            </a>
-            <a href="#stack" className="transition hover:text-white">
-              Stack
             </a>
           </nav>
         </div>
@@ -205,59 +189,23 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-5 space-y-4">
-            {messages.map((message, index) => (
-              <div
-                key={`${message.type}-${index}`}
-                className={`max-w-3xl rounded-2xl border px-4 py-3 ${
-                  message.type === "user"
-                    ? "ml-auto border-emerald-400/30 bg-emerald-400/10 text-emerald-50"
-                    : "border-white/10 bg-slate-950 text-slate-200"
-                }`}
-              >
-                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-                  {message.type === "user" ? "You" : "Coach"}
-                </p>
-                <p className="mt-2 whitespace-pre-line leading-7">{message.text}</p>
-                {message.videos?.length ? (
-                  <div className="mt-3 space-y-2">
-                    {message.videos.map((video) => (
-                      <a
-                        key={video.title}
-                        href={video.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="block text-sm text-emerald-300 underline decoration-emerald-400/60 underline-offset-4"
-                      >
-                        {video.title}
-                      </a>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            ))}
-
-            {isLoading ? (
-              <div className="max-w-3xl rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-slate-300">
-                Coach is thinking...
-              </div>
-            ) : null}
-          </div>
-
-          <div className="mt-5">
+          <div className="mt-6">
+            <label htmlFor="coach-question" className="mb-2 block text-sm font-medium text-slate-200">
+              Ask about a cricket law, technique, or match situation
+            </label>
             <textarea
+              id="coach-question"
               value={question}
               onChange={(event) => setQuestion(event.target.value)}
-              onFocus={handleQuestionFocus}
               onKeyDown={(event) => {
                 if (event.key === "Enter" && !event.shiftKey) {
                   event.preventDefault();
                   submitQuestion();
                 }
               }}
-              rows={4}
+              rows={3}
               className="w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base text-white outline-none ring-0 placeholder:text-slate-500 focus:border-emerald-400"
-              placeholder="Ask about a law, technique, or match situation"
+              placeholder="Type your cricket question here..."
             />
           </div>
 
@@ -284,9 +232,56 @@ export default function Home() {
               {isLoading ? "Thinking..." : "Ask coach"}
             </button>
           </div>
+
+          <div className="mt-8 border-t border-white/10 pt-6" aria-live="polite">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
+              Coach answers
+            </p>
+            {messages.length === 0 && !isLoading ? (
+              <p className="text-sm text-slate-400">Your answer will appear here.</p>
+            ) : (
+              <div className="space-y-4">
+                {messages.map((message, index) => (
+                  <div
+                    key={`${message.type}-${index}`}
+                    className={`max-w-3xl rounded-2xl border px-4 py-3 ${
+                      message.type === "user"
+                        ? "ml-auto border-emerald-400/30 bg-emerald-400/10 text-emerald-50"
+                        : "border-white/10 bg-slate-950 text-slate-200"
+                    }`}
+                  >
+                    <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                      {message.type === "user" ? "You" : "Coach"}
+                    </p>
+                    <p className="mt-2 whitespace-pre-line leading-7">{message.text}</p>
+                    {message.videos?.length ? (
+                      <div className="mt-3 space-y-2">
+                        {message.videos.map((video) => (
+                          <a
+                            key={video.title}
+                            href={video.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="block text-sm text-emerald-300 underline decoration-emerald-400/60 underline-offset-4"
+                          >
+                            {video.title}
+                          </a>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                ))}
+                {isLoading ? (
+                  <div className="max-w-3xl rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-slate-300">
+                    Coach is thinking...
+                  </div>
+                ) : null}
+              </div>
+            )}
+          </div>
         </section>
 
-        <section className="mt-14 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <section className="mt-14">
           <div>
             <div className="inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-emerald-200">
               Free • multilingual • mobile-first
@@ -303,13 +298,12 @@ export default function Home() {
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => void askCoach(defaultQuestion)}
+              <a
+                href="#coach-question"
                 className="rounded-full bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
               >
                 Ask coach
-              </button>
+              </a>
               <a
                 href="#knowledge"
                 className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
@@ -333,38 +327,6 @@ export default function Home() {
             </div>
           </div>
 
-          <aside className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-2xl shadow-emerald-950/20">
-            <div className="rounded-2xl border border-emerald-400/20 bg-slate-900 p-4">
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-slate-400">
-                <span>Coach response</span>
-                <span>{messages[messages.length - 1]?.category ?? "Laws"}</span>
-              </div>
-
-              <p className="mt-5 text-lg font-semibold text-white">
-                {messages[messages.length - 1]?.type === "user"
-                  ? "Your question"
-                  : "Latest answer"}
-              </p>
-
-              <p className="mt-4 leading-7 text-slate-300">
-                {messages[messages.length - 1]?.text ?? "Ask a cricket question to begin."}
-              </p>
-
-              <div className="mt-5 space-y-2">
-                {(messages[messages.length - 1]?.videos ?? []).map((video) => (
-                  <a
-                    key={video.title}
-                    href={video.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block rounded-xl border border-white/10 bg-slate-800/80 px-3 py-2 text-sm text-emerald-200 transition hover:border-emerald-400/50 hover:bg-slate-800"
-                  >
-                    {video.title}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </aside>
         </section>
 
         <section id="knowledge" className="mt-16">
@@ -397,28 +359,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="stack" className="mt-16 grid gap-5 md:grid-cols-3">
-          {[
-            {
-              title: "RAG pipeline",
-              body: "Use open-source embeddings, vector search, and a local LLM so the answer comes from cricket documentation rather than guesses.",
-            },
-            {
-              title: "Multilingual layer",
-              body: "Serve English, Hindi, Bengali, Tamil, Telugu, and German through translation models or pre-written language packs for fast, explainable answers.",
-            },
-            {
-              title: "Video grounding",
-              body: "Attach relevant YouTube lesson links to each answer so learners can watch the exact explanation and reinforce the concept visually.",
-            },
-          ].map((card) => (
-            <article key={card.title} className="rounded-2xl border border-white/10 bg-slate-900 p-5">
-              <p className="text-xs uppercase tracking-[0.18em] text-emerald-300">System design</p>
-              <h3 className="mt-3 text-xl font-bold text-white">{card.title}</h3>
-              <p className="mt-3 leading-7 text-slate-300">{card.body}</p>
-            </article>
-          ))}
-        </section>
       </div>
     </main>
   );

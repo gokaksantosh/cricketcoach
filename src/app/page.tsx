@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   getCoachReply,
   knowledgeEntries,
@@ -23,10 +23,13 @@ const officialSources = [
   },
 ];
 
+const suggestedQuestionIds = ["lbw-rule", "run-out", "no-ball", "cover-drive", "off-spin"];
+
 type ChatMessage = {
   type: "user" | "coach";
   text: string;
   category?: string;
+  sources?: Array<{ title: string; url: string }>;
   videos?: Array<{ title: string; url: string }>;
 };
 
@@ -36,6 +39,13 @@ export default function Home() {
   const [question, setQuestion] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const latestAnswerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isLoading || messages[messages.length - 1]?.type !== "coach") return;
+
+    latestAnswerRef.current?.scrollIntoView({ behavior: "instant", block: "center" });
+  }, [isLoading, messages]);
 
   const categories = useMemo(
     () => ["All", ...new Set(knowledgeEntries.map((entry) => entry.category))],
@@ -43,12 +53,11 @@ export default function Home() {
   );
 
   const visibleQuestions = useMemo(() => {
-    const filtered =
-      category === "All"
-        ? knowledgeEntries
-        : knowledgeEntries.filter((entry) => entry.category === category);
-
-    return filtered.slice(0, 5);
+    return knowledgeEntries.filter(
+      (entry) =>
+        suggestedQuestionIds.includes(entry.id) &&
+        (category === "All" || entry.category === category),
+    );
   }, [category]);
 
   const askCoach = async (nextQuestion: string) => {
@@ -81,6 +90,7 @@ export default function Home() {
       const payload = (await response.json()) as {
         answer: string;
         category: string;
+        sources?: Array<{ title: string; url: string }>;
         videos: Array<{ title: string; url: string }>;
         known?: boolean;
       };
@@ -91,6 +101,7 @@ export default function Home() {
           type: "coach",
           text: payload.answer,
           category: payload.category,
+          sources: payload.sources,
           videos: payload.videos,
         },
       ]);
@@ -103,6 +114,7 @@ export default function Home() {
           type: "coach",
           text: fallback.answer,
           category: fallback.entry.category,
+          sources: fallback.entry.sources,
           videos: fallback.entry.videos,
         },
       ]);
@@ -189,48 +201,52 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-6">
-            <label htmlFor="coach-question" className="mb-2 block text-sm font-medium text-slate-200">
-              Ask about a cricket law, technique, or match situation
-            </label>
-            <textarea
-              id="coach-question"
-              value={question}
-              onChange={(event) => setQuestion(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" && !event.shiftKey) {
-                  event.preventDefault();
-                  submitQuestion();
-                }
-              }}
-              rows={3}
-              className="w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base text-white outline-none ring-0 placeholder:text-slate-500 focus:border-emerald-400"
-              placeholder="Type your cricket question here..."
-            />
+          <div className="mt-6 grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
+            <div>
+              <label htmlFor="coach-question" className="mb-2 block text-sm font-medium text-slate-200">
+                Ask about a cricket law, technique, or match situation
+              </label>
+              <textarea
+                id="coach-question"
+                value={question}
+                onChange={(event) => setQuestion(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" && !event.shiftKey) {
+                    event.preventDefault();
+                    submitQuestion();
+                  }
+                }}
+                rows={3}
+                className="w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base text-white outline-none ring-0 placeholder:text-slate-500 focus:border-emerald-400"
+                placeholder="Type your cricket question here..."
+              />
+            </div>
+            <button
+              type="button"
+              onClick={submitQuestion}
+              disabled={isLoading}
+              className="min-h-12 rounded-full bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-60 sm:min-w-32"
+            >
+              {isLoading ? "Thinking..." : "Ask coach"}
+            </button>
           </div>
 
-          <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+          <div className="mt-4 space-y-2" aria-label="Suggested cricket questions">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
+              Try asking
+            </p>
             <div className="flex flex-wrap gap-2">
               {visibleQuestions.map((entry) => (
                 <button
                   key={entry.id}
                   type="button"
                   onClick={() => handleSampleQuestion(entry.question)}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200 transition hover:border-emerald-400/50 hover:text-white"
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200 transition hover:border-emerald-400/50 hover:bg-emerald-400/10 hover:text-white"
                 >
                   {entry.question}
                 </button>
               ))}
             </div>
-
-            <button
-              type="button"
-              onClick={submitQuestion}
-              disabled={isLoading}
-              className="rounded-full bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {isLoading ? "Thinking..." : "Ask coach"}
-            </button>
           </div>
 
           <div className="mt-8 border-t border-white/10 pt-6" aria-live="polite">
@@ -241,18 +257,31 @@ export default function Home() {
               <p className="text-sm text-slate-400">Your answer will appear here.</p>
             ) : (
               <div className="space-y-4">
-                {messages.map((message, index) => (
+                {messages.map((message, index) => {
+                  const isLatestAnswer = message.type === "coach" && index === messages.length - 1;
+
+                  return (
                   <div
                     key={`${message.type}-${index}`}
+                    ref={isLatestAnswer ? latestAnswerRef : undefined}
                     className={`max-w-3xl rounded-2xl border px-4 py-3 ${
                       message.type === "user"
                         ? "ml-auto border-emerald-400/30 bg-emerald-400/10 text-emerald-50"
-                        : "border-white/10 bg-slate-950 text-slate-200"
+                        : isLatestAnswer
+                          ? "scroll-mt-24 border-emerald-400/40 bg-emerald-400/[0.06] text-slate-100 ring-1 ring-emerald-300/20 shadow-lg shadow-emerald-950/20"
+                          : "border-white/10 bg-slate-950 text-slate-200"
                     }`}
                   >
-                    <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-                      {message.type === "user" ? "You" : "Coach"}
-                    </p>
+                    <div className="flex items-center justify-between gap-4">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+                        {message.type === "user" ? "You" : isLatestAnswer ? "Coach answer" : "Coach"}
+                      </p>
+                      {isLatestAnswer && message.category ? (
+                        <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1 text-xs text-emerald-200">
+                          {message.category}
+                        </span>
+                      ) : null}
+                    </div>
                     <p className="mt-2 whitespace-pre-line leading-7">{message.text}</p>
                     {message.videos?.length ? (
                       <div className="mt-3 space-y-2">
@@ -269,8 +298,24 @@ export default function Home() {
                         ))}
                       </div>
                     ) : null}
+                    {message.sources?.length ? (
+                      <div className="mt-3 space-y-2 border-t border-white/10 pt-3">
+                        {message.sources.map((source) => (
+                          <a
+                            key={source.url}
+                            href={source.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="block text-sm text-emerald-200 underline decoration-emerald-400/40 underline-offset-4"
+                          >
+                            Official source: {source.title}
+                          </a>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
-                ))}
+                  );
+                })}
                 {isLoading ? (
                   <div className="max-w-3xl rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-slate-300">
                     Coach is thinking...

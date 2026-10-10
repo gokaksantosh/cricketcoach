@@ -1,3 +1,5 @@
+import { mccLawRecords } from "./mccLaws";
+
 export const supportedLanguages = [
   { code: "en", label: "English" },
   { code: "hi", label: "Hindi" },
@@ -19,17 +21,30 @@ export type KnowledgeEntry = {
   category: "Laws" | "Batting" | "Bowling" | "Fielding" | "General";
   question: string;
   keywords: string[];
-  answer: Record<SupportedLanguage, string>;
+  answer: Partial<Record<SupportedLanguage, string>> & { en: string };
   sources: KnowledgeSource[];
   videos: KnowledgeSource[];
+  lawNumber?: number;
 };
 
 export const knowledgeEntries: KnowledgeEntry[] = [
+  ...mccLawRecords.map((law) => ({
+    id: law.id,
+    lawNumber: law.number,
+    category: "Laws" as const,
+    question: `What does ${law.reference} (${law.title}) say?`,
+    keywords: law.keywords,
+    answer: {
+      en: `${law.summary} For exact wording and all subclauses, open the official source below.`,
+    },
+    sources: [{ title: `${law.reference}: ${law.title}`, url: law.url }],
+    videos: [],
+  })),
   {
     id: "lbw-rule",
     category: "Laws",
     question: "What is the LBW rule in cricket?",
-    keywords: ["lbw", "leg before wicket", "wicket"],
+    keywords: ["lbw", "leg before wicket", "leg before"],
     answer: {
       en: "An LBW decision is given when the ball strikes the batter's body before the bat and would have hit the stumps, assuming the delivery was not otherwise legally deflected. The key principle is whether the ball would have hit the wicket on a straight line and whether the batter was in front of the line of the stumps.",
       hi: "LBW निर्णय तब दिया जाता है जब गेंद बल्लेबाज के शरीर से लगकर बल्ले से पहले लगती है और अगर गेंद सही दिशा में जाती तो विकेट पर लगती। मुख्य सिद्धांत यह होता है कि गेंद विकेट को सीधी रेखा में लगी होती या नहीं और बल्लेबाज विकेट रेखा के आगे था या नहीं।",
@@ -930,7 +945,12 @@ export function getCoachReply(input: string, language: SupportedLanguage) {
       return { entry, score: bestScore };
     })
     .filter((result) => result.score > 0)
-    .sort((a, b) => b.score - a.score || a.entry.keywords.length - b.entry.keywords.length);
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        Number(Boolean(b.entry.lawNumber)) - Number(Boolean(a.entry.lawNumber)) ||
+        a.entry.keywords.length - b.entry.keywords.length,
+    );
 
   const match = scoredMatches[0]?.entry;
 

@@ -449,6 +449,426 @@ export const knowledgeEntries: KnowledgeEntry[] = [
       { title: "What is an over?", url: "https://www.youtube.com/results?search_query=cricket+what+is+an+over" },
     ],
   },
+  {
+    id: "dot-ball",
+    category: "General",
+    question: "What is a dot ball in cricket?",
+    keywords: ["dot ball", "dot-ball", "maiden", "dot"],
+    answer: {
+      en: "A dot ball is a delivery in which no runs are scored. It is useful for a bowler because it builds pressure and can force a batter into a mistake. A maiden over is when a bowler concedes no runs in an entire over.",
+      hi: "डॉट बॉल वह डिलीवरी है जिसमें कोई रन नहीं बनता। यह गेंदबाज के लिए उपयोगी होता है क्योंकि यह दबाव बनाता है और बल्लेबाज को गलती करने पर मजबूर करता है। मेडन ओवर तब होता है जब गेंदबाज पूरे ओवर में कोई रन नहीं देता है।",
+      bn: "ডট বল হলো এমন ডেলিভারি যেখানে কোনো রান হয় না। এটি বোলারের জন্য উপকারী কারণ এটি চাপ তৈরি করে এবং ব্যাটারকে ভুল করতে বাধ্য করে। মেইডেন ওভারের অর্থ হলো বোলার পুরো ওভারে কোনো রান দেন না।",
+      ta: "டாட் பால் என்பது ஒரு டெலிவரி ஆகும், இதில் ரன்கள் எதுவும் இல்லை. இது பந்துவீச்சாளருக்கு பயனுள்ளதாக இருக்கும், ஏனெனில் இது அழுத்தத்தை உருவாக்கி பேட்டரை தவறுக்கு இட்டுச் செல்லும். மேடன் ஓவர் என்பது ஒரு பந்துவீச்சாளர் ஒரு ஓவரில் எந்த ரன்களையும் விட்டுவிடாதது.",
+      te: "డాట్ బంతి అంటే ఒక డెలివరీలో పరుగులు లేవు. ఇది బౌలర్‌కు பயనీయమైంది, ఎందుకంటే ఇది ఒత్తిడిని సృష్టించి బ్యాటర్‌ను తప్పు చేయిస్తుంది. మైడెన్ ఓవర్ అంటే ఒక బౌలర్ మొత్తం ఓవర్‌లో ninguna పరుగులు ఇవ్వకుండా ఉండటం.",
+      de: "Ein Dot Ball ist ein Ball, bei dem keine Runs erzielt werden. Für den Bowler ist das nützlich, weil es Druck aufbaut und den Batter zu einem Fehler zwingt. Ein Maiden Over ist ein Over, in dem der Bowler keine Runs zulässt.",
+    },
+    sources: [
+      { title: "Scoring and pressure basics", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "Dot ball explained", url: "https://www.youtube.com/results?search_query=cricket+dot+ball+explained" },
+    ],
+  },
+  {
+    id: "duck",
+    category: "Batting",
+    question: "What is a duck in cricket?",
+    keywords: ["duck", "zero run", "0 runs"],
+    answer: {
+      en: "A duck is a batter's score of zero in an innings. It is a disappointing outcome because the batter returns without scoring any runs, but it is a common part of cricket.",
+      hi: "डक वह स्कोर है जब बल्लेबाज नॉट आउट या आउट होकर भी शून्य पर निकलता है। यह एक निराशाजनक परिणाम है, क्योंकि बल्लेबाज बिना रन बनाए ही लौटता है।",
+      bn: "ডাক হলো ব্যাটারের ইনিংসে শূন্য রান। এটি হতাশাজনক, কারণ ব্যাটার কোনো রান ছাড়াই ফিরে যান।",
+      ta: "டக் என்பது ஒரு பேட்டரின் இன்னிங்ஸில் புள்ளியிடப்படாத சுழி. இது ஏமாற்றமளிக்கும் ஒரு முடிவு, ஏனெனில் பேட்டர் எந்த ரனும் சேர்க்காமல் திரும்புகிறார்.",
+      te: "డక్ అంటే బ్యాటర్ ఇన్నింగ్స్‌లో సున్నా పరుగులు. ఇది నిరాశాజనకమైన ఫలితం, ఎందుకంటే బ్యాటర్ పరుగులు చేయకుండానే మ rejo etc.",
+      de: "Ein Duck ist ein Score von Null in einer Innings. Das ist ein enttäuschendes Ergebnis, weil der Batter ohne Runs zurückkehrt.",
+    },
+    sources: [
+      { title: "Batting statistics and scores", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "Duck in cricket explained", url: "https://www.youtube.com/results?search_query=cricket+duck+explained" },
+    ],
+  },
+  {
+    id: "century",
+    category: "Batting",
+    question: "What is a century in cricket?",
+    keywords: ["century", "100 runs", "hundred"],
+    answer: {
+      en: "A century is a score of 100 runs or more by a batter in a single innings. It is one of the most celebrated batting milestones and often indicates a dominant performance.",
+      hi: "सेंचुरी एक बल्लेबाज द्वारा एक पारी में 100 या उससे अधिक रन बनाना है। यह बल्लेबाजी का एक प्रमुख माइलस्टोन है और अक्सर शानदार प्रदर्शन को दर्शाता है।",
+      bn: "সেঞ্চুরি হলো ব্যাটার এক ইনিংসে ১০০ বা তার বেশি রান করা। এটি ব্যাটিংয়ের গুরুত্বপূর্ণ মাইলস্টোন এবং প্রায়শই দুর্দান্ত পারফরম্যান্সকে নির্দেশ করে।",
+      ta: "சதம் என்பது ஒரு பேட்டரின் ஒரு இன்னிங்ஸில் 100 அல்லது அதற்கு மேல் ரன்கள் சேர்ப்பதாகும். இது பேட்டிங்கின் மிக முக்கியமான மைல்ஸ்டோன் ஆகும்.",
+      te: "సెంచరీ అంటే ఒక బ్యాటర్ ఒక ఇన్నింగ్స్‌లో 100 లేదా అంతకంటే ఎక్కువ పరుగులు చేయడం. ఇది బ్యాటింగ్‌లో అత్యంత విలువైన మైల్స్టోన్.",
+      de: "Ein Century ist ein Score von 100 oder mehr Runs in einer Innings. Es ist ein herausragender Leistungspunkt im Batting.",
+    },
+    sources: [
+      { title: "Batting milestones", url: "https://www.icc-cricket.com" },
+    ],
+    videos: [
+      { title: "What is a century?", url: "https://www.youtube.com/results?search_query=cricket+century+explained" },
+    ],
+  },
+  {
+    id: "double-century",
+    category: "Batting",
+    question: "What is a double century in cricket?",
+    keywords: ["double century", "200 runs", "double hundred"],
+    answer: {
+      en: "A double century is a score of 200 runs in a single innings. It is a rare and highly valued feat, showing exceptional endurance and control against quality bowling.",
+      hi: "डबल सेंचुरी एक पारी में 200 रन बनाना है। यह एक विरल और अत्यंत सम्मानित उपलब्धि है, जो उत्कृष्ट सहनशीलता और नियंत्रण को दर्शाता है।",
+      bn: "ডাবল সেঞ্চুরি হলো এক ইনিংসে ২০০ রান। এটি বিরল ও অত্যন্ত মূল্যবান একটি কৃতিত্ব, যা অসাধারণ ধৈর্য এবং নিয়ন্ত্রণ দেখায়।",
+      ta: "டபுள் சதம் என்பது ஒரு இன்னிங்ஸில் 200 ரன்கள் சேர்ப்பதாகும். இது அரிதான மற்றும் மிகவும் மதிக்கப்படும் சாதனையாகும்.",
+      te: "డబుల్ సెంటరీ అంటే ఒక ఇన్నింగ్స్‌లో 200 పరుగులు చేయడం. ఇది చాలా అరుదైన, విలువైన ఘనత.",
+      de: "Ein Double Century ist ein Score von 200 Runs in einer Innings. Es ist eine seltene und sehr geschätzte Leistung.",
+    },
+    sources: [
+      { title: "Batting records", url: "https://www.icc-cricket.com" },
+    ],
+    videos: [
+      { title: "Double century explained", url: "https://www.youtube.com/results?search_query=cricket+double+century+explained" },
+    ],
+  },
+  {
+    id: "hat-trick",
+    category: "Bowling",
+    question: "What is a hat-trick in cricket?",
+    keywords: ["hat trick", "hat-trick", "three wickets in three balls"],
+    answer: {
+      en: "A hat-trick is when a bowler takes three wickets in three consecutive deliveries. It is one of the most celebrated moments in cricket and often completely changes the momentum of a match.",
+      hi: "हैट्रिक तब होती है जब एक गेंदबाज लगातार तीन गेंदों में तीन विकेट लेता है। यह क्रिकेट का सबसे रोमांचक क्षणों में से एक है और अक्सर मैच का रुख बदल देता है।",
+      bn: "হ্যাট-ট্রিক হলো যখন একজন বোলার তিনটি ধারাবাহিক ডেলিভারিতে তিন উইকেট নেয়। এটি ক্রিকেটের অন্যতম স্মরণীয় মুহূর্ত।",
+      ta: "ஹேட்ரிக் என்பது ஒரு பந்துவீச்சாளர் தொடர்ச்சியாக மூன்று பந்துகளில் மூன்று விக்கெட்டுகளை எடுப்பதாகும். இது கிரிக்கெட்டின் மிகச் சிறந்த தருணங்களில் ஒன்றாகும்.",
+      te: "హ్యాట్రిక్ అంటే ఒక బౌలర్ మూడు వరుస బంతుల్లో మూడు వికెట్లు తీసుకోవడం. ఇది క్రికెట్‌లో అత్యంత ప్రసిద్ధమైన ఘట్టం.",
+      de: "Ein Hat-Trick liegt vor, wenn ein Bowler in drei aufeinanderfolgenden Bällen drei Wickets nimmt. Es ist eine der berühmtesten Leistungen im Cricket.",
+    },
+    sources: [
+      { title: "Bowling milestones", url: "https://www.icc-cricket.com" },
+    ],
+    videos: [
+      { title: "Hat-trick explained", url: "https://www.youtube.com/results?search_query=cricket+hat+trick+explained" },
+    ],
+  },
+  {
+    id: "five-wicket-haul",
+    category: "Bowling",
+    question: "What is a five-wicket haul?",
+    keywords: ["five wicket haul", "5 wicket haul", "five-for", "five wickets"],
+    answer: {
+      en: "A five-wicket haul is when a bowler takes five wickets in an innings. It is a standout bowling performance and is highly valued because it can shift the balance of a match dramatically.",
+      hi: "पाँच-विकेट हॉल तब होता है जब एक गेंदबाज एक पारी में पाँच विकेट लेता है। यह शानदार गेंदबाजी प्रदर्शन है और मैच का संतुलन बदल सकता है।",
+      bn: "ফাইভ-উইকেট হোল হলো যখন একটি বোলার এক ইনিংসে পাঁচ উইকেট নেয়। এটি খুব গুরুত্বপূর্ণ একটি বোলিং পারফরম্যান্স।",
+      ta: "ஐந்து-விக்கெட் ஹால் என்பது ஒரு பந்துவீச்சாளர் ஒரு இன்னிங்ஸில் ஐந்து விக்கெட்டுகளை எடுப்பதாகும். இது அற்புதமான பந்துவீச்சு செயல்திறன்.",
+      te: "ఐదు-వికెట్ హాల్ అంటే ఒక బౌలర్ ఒక ఇన్నింగ్స్‌లో ఐదు వికెట్లు తీసుకోవడం. ఇది గొప్ప బౌలింగ్ ప్రదర్శన.",
+      de: "Ein Five-Wicket-Haul liegt vor, wenn ein Bowler in einer Innings fünf Wickets nimmt. Das ist eine herausragende Bowling-Leistung.",
+    },
+    sources: [
+      { title: "Bowling records", url: "https://www.icc-cricket.com" },
+    ],
+    videos: [
+      { title: "Five wicket haul explained", url: "https://www.youtube.com/results?search_query=cricket+five+wicket+haul+explained" },
+    ],
+  },
+  {
+    id: "strike-rate",
+    category: "General",
+    question: "What is strike rate in cricket?",
+    keywords: ["strike rate", "batting strike rate", "run rate"],
+    answer: {
+      en: "Strike rate is the number of runs a batter scores per 100 balls faced. A higher strike rate suggests faster scoring, while a lower one suggests a more cautious approach.",
+      hi: "स्ट्राइक रेट वह दर है जिस पर बल्लेबाज 100 गेंदों में रन बनाता है। उच्च स्ट्राइक रेट का मतलब तेज़ स्कोरिंग, जबकि कम स्टाइक रेट का मतलब सावधानीपूर्ण खेल होता है।",
+      bn: "স্ট্রাইক রেট হলো ব্যাটার ১০০টি বলের মধ্যে যত রান করে। উচ্চ স্ট্রাইক রেট মানে দ্রুত রান, কম মানে আরও সতর্ক খেলা।",
+      ta: "ஸ்ட்ரைக் ரேட் என்பது ஒரு பேட்டர் 100 பந்துகளில் எத்தனை ரன்கள் எடுக்கிறார் என்பதைக் குறிக்கிறது. அதிக ஸ்ட்ரைக் ரேட் வேகமான ஸ்கோரைングைக் குறிக்கிறது.",
+      te: "స్ట్రైక్ రేట్ అంటే బ్యాటర్ 100 బంతుల్లో ఎన్ని పరుగులు చేస్తాడు. ఎక్కువ రేట్ అంటే వేగంగా స్కోర్ చేయడం, తక్కువ రేట్ అంటే జాగ్రత్తగా ఆడటం.",
+      de: "Die Strike Rate beschreibt, wie viele Runs ein Batter pro 100 Balls erzielt. Eine hohe Strike Rate bedeutet schnelles Scoring, eine niedrige eher vorsichtige Spielweise.",
+    },
+    sources: [
+      { title: "Batting performance metrics", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "What is strike rate?", url: "https://www.youtube.com/results?search_query=cricket+strike+rate+explained" },
+    ],
+  },
+  {
+    id: "partnership",
+    category: "General",
+    question: "What is a partnership in cricket?",
+    keywords: ["partnership", "batting partnership"],
+    answer: {
+      en: "A partnership is the total number of runs scored by two batters while they are batting together. Strong partnerships often build the platform for a big total and help a team recover from pressure.",
+      hi: "पार्टरशिप दो बल्लेबाजों द्वारा साथ में बनाये गए कुल रन हैं। मजबूत पार्टनरशिप टीम के लिए बड़े स्कोर का आधार बनाती है और दबाव से उबरने में सहायक होती है।",
+      bn: "পार्टনারশিপ হলো দুই ব্যাটারের একসাথে করা মোট রান। শক্তিশালী পার্টনারশিপ দলকে বড় স্কোরের ভিত্তি দেয় এবং চাপ থেকে বের হতে সাহায্য করে।",
+      ta: "பார்ட்னர்ஷிப் என்பது இரண்டு பேட்டர்கள் ஒன்றாக சேர்ந்து அடித்த மொத்த ரன்களாகும். வலுவான பார்ட்னர்ஷிப் ஒரு பெரிய ஸ்கோரை உருவாக்குவதற்கு உதவுகிறது.",
+      te: "పార్టనర్షిప్ అంటే ఇద్దరు బ్యాటర్లు కలిసి చేసిన మొత్తం పరుగులు. బలమైన పార్టనర్షిప్ భారీ స్కోరుకు బేస్ అవుతుంది.",
+      de: "Eine Partnership ist die Gesamtzahl der Runs, die zwei Batter gemeinsam erzielen. Starke Partnerships bauen oft die Grundlage für eine hohe Gesamtleistung.",
+    },
+    sources: [
+      { title: "Batting partnership basics", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "Partnership in cricket explained", url: "https://www.youtube.com/results?search_query=cricket+partnership+explained" },
+    ],
+  },
+  {
+    id: "toss",
+    category: "General",
+    question: "What is the toss in cricket?",
+    keywords: ["toss", "coin toss", "winning the toss"],
+    answer: {
+      en: "The toss is the coin flip before the match where captains choose whether to bat or bowl first. The decision depends on pitch conditions, weather, and the tactical preferences of the team.",
+      hi: "टॉस मैच से पहले का सिक्का उछालना होता है, जिसके द्वारा कप्तान तय करता है कि पहले बल्लेबाजी करनी है या गेंदबाजी। यह फैसला पिच की स्थिति, मौसम और टीम की रणनीति पर निर्भर करता है।",
+      bn: "টস হলো ম্যাচের আগে সঙ্গী ছুঁড়ে দেওয়া, যেখানে অধিনায়ক বেছে নেন पहले ব্যাটিং করবেন নাকি বোলিং। এই সিদ্ধান্ত পিচ, আবহাওয়া ও দলের কৌশলের উপর নির্ভর করে।",
+      ta: "டாஸ் என்பது போட்டிக்கு முன் செய்யப்படும் காசு சுண்டல், அப்போது கேப்டன் முதலில் பேட்டிங் செய்ய வேண்டுமா அல்லது பந்துவீச வேண்டுமா என்ற முடிவை எடுக்கிறார். இது பீச், வானிலை மற்றும் அணியின் உத்தியைப் பொறுத்தது.",
+      te: "టాస్ అంటే మ్యాచ్ ముందే కాయిన్ ఎగురవేసి, కెప్టెన్ మొదట బ్యాటింగ్ చేయాలా, బౌలింగ్ చేయాలా అని నిర్ణయం తీసుకోవడం. ఇది పిచ్ స్థితి, వాతావరణం, జట్టు వ్యూహంపై ఆధారపడి ఉంటుంది.",
+      de: "Der Toss ist das Münzwurf vor dem Match, bei dem die Kapitäne entscheiden, ob sie zuerst schlagen oder werfen wollen. Die Entscheidung hängt von Pitch, Wetter und Strategie ab.",
+    },
+    sources: [
+      { title: "Match start and toss rules", url: "https://www.icc-cricket.com/about/cricket/rules-and-regulations/playing-conditions" },
+    ],
+    videos: [
+      { title: "What is the toss?", url: "https://www.youtube.com/results?search_query=cricket+toss+explained" },
+    ],
+  },
+  {
+    id: "test-match",
+    category: "General",
+    question: "What is a Test match in cricket?",
+    keywords: ["test match", "test cricket", "five-day match"],
+    answer: {
+      en: "A Test match is a traditional format of cricket that lasts up to five days, with two innings per side. It is the longest and most demanding format, requiring patience, endurance, and skill in all phases of the game.",
+      hi: "टेस्ट मैच क्रिकेट का पारंपरिक प्रारूप है जो अधिकतम पाँच दिन तक चलता है, और दोनों टीमों के दो-दो पारियां होती हैं। यह सबसे लंबा और चुनौतीपूर्ण प्रारूप है, जिसमें धैर्य, सहनशीलता और सभी क्षेत्रों में कौशल की आवश्यकता होती है।",
+      bn: "টেস্ট ম্যাচ হলো ঐতিহ্যবাহী ক্রিকেটের ফরম্যাট, যা সর্বোচ্চ পাঁচ দিন স্থায়ী হয়, প্রতিটি দল দুই ইনিংস খেলে। এটি সবচেয়ে দীর্ঘ ও চ্যালেঞ্জিং ফরম্যাট, যেখানে ধৈর্য, সহনশীলতা এবং সব দিকের দক্ষতা লাগে।",
+      ta: "டெஸ்ட் போட்டி என்பது பாரம்பரிய கிரிக்கெட் வடிவமாகும், இது ஐந்து நாட்கள் வரை நீடிக்கும், ஒவ்வொரு அணியும் இரண்டு இன்னிங்ஸ்கள் ஆடும். இது மிக நீண்ட மற்றும் சவாலான வடிவமாகும்.",
+      te: "టెస్ట్ మ్యాచ్ అనేది సాంప్రదాయ క్రికెట్ ఫార్మాట్, ఇది గరిష్ఠంగా ఐదు రోజుల పాటు కొనసాగుతుంది, ప్రతి జట్టు రెండు ఇన్నింగ్స్ ఆడుతుంది. ఇది最长 and most demanding format.",
+      de: "Ein Test Match ist das traditionelle, bis zu fünf Tage dauernde Format mit zwei Innings pro Team. Es ist das längste und anspruchsvollste Format und verlangt Geduld, Ausdauer und Können in allen Bereichen.",
+    },
+    sources: [
+      { title: "ICC formats overview", url: "https://www.icc-cricket.com/about/cricket/format" },
+    ],
+    videos: [
+      { title: "What is Test cricket?", url: "https://www.youtube.com/results?search_query=cricket+test+match+explained" },
+    ],
+  },
+  {
+    id: "odi",
+    category: "General",
+    question: "What is an ODI in cricket?",
+    keywords: ["odi", "one day international", "one-day international", "50-over"],
+    answer: {
+      en: "An ODI is a one-day international match where each side plays a maximum of 50 overs. It combines a full tactical game with a faster scoring rhythm than Test cricket.",
+      hi: "ODI एक वनडे इंटरनेशनल मैच है जहाँ प्रत्येक टीम अधिकतम 50 ओवर खेलती है। यह टेस्ट क्रिकेट की तुलना में तेज़ स्कोरिंग और रणनीति का मिश्रण है।",
+      bn: "ODI হলো ওয়ানডে আন্তর্জাতিক ম্যাচ, যেখানে প্রতিটি দল সর্বোচ্চ ৫০ ওভার খেলে। এটি টেস্ট ক্রিকেটের তুলনায় দ্রুত স্কোরিং এবং কৌশলগত খেলা।",
+      ta: "ODI என்பது ஒன்-டே சர்வதேச போட்டியாகும், இதில் ஒவ்வொரு அணியும் அதிகபட்சமாக 50 ஓவர்கள் ஆடும். இது டெஸ்ட் கிரிக்கெட்டைவிட வேகமாகவும் மூலோபாயமாகவும் விளையாடப்படுகிறது.",
+      te: "ODI అంటే వన్‌డే ఇంటర్నేషనల్ మ్యాచ్, ఇందులో ప్రతి జట్టు గరిష్ఠంగా 50 ఓవర్లు ఆడుతుంది. ఇది టెస్ట్ క్రికెట్ కంటే వేగంగా మరియు వ్యూహాత్మకంగా ఆడే ఫార్మాట్.",
+      de: "Ein ODI ist ein One-Day-International-Match, bei dem jedes Team maximal 50 Overs spielt. Es kombiniert taktisches Denken mit schnellerem Scoring als Test Cricket.",
+    },
+    sources: [
+      { title: "ICC formats summary", url: "https://www.icc-cricket.com/about/cricket/format" },
+    ],
+    videos: [
+      { title: "What is ODI cricket?", url: "https://www.youtube.com/results?search_query=cricket+odi+explained" },
+    ],
+  },
+  {
+    id: "t20",
+    category: "General",
+    question: "What is a T20 match in cricket?",
+    keywords: ["t20", "twenty20", "20 over"],
+    answer: {
+      en: "A T20 match is a short format where each side is allowed 20 overs. It is designed for high-intensity, fast scoring and aggressive tactics from the first ball to the last.",
+      hi: "T20 एक छोटा प्रारूप है जहाँ प्रत्येक टीम को 20 ओवर मिलते हैं। यह तेज़, आक्रामक और उच्च तीव्रता वाले क्रिकेट का प्रारूप है।",
+      bn: "T20 হলো ছোট ফরম্যাট, যেখানে প্রতিটি দল ২০ ওভার খেলে। এটি দ্রুত, আক্রমণাত্মক এবং উচ্চ-তীব্রতার ক্রিকেট।",
+      ta: "T20 என்பது குறுகிய வடிவம், இதில் ஒவ்வொரு அணிக்கும் 20 ஓவர்கள் வழங்கப்படுகின்றன. இது அதிக தீவிரம் மற்றும் வேகமான ஸ்கோரைंग கொண்ட வடிவமாகும்.",
+      te: "T20 అనేది చిన్న ఫార్మాట్, ప్రతి జట్టు 20 ఓవర్లు ఆడుతుంది. ఇది వేగంగా, ఆक्रमణాత్మకంగా, అధిక తీవ్రతతో ఆడే ఫార్మాట్.",
+      de: "Ein T20-Match ist ein kurzes Format mit 20 Overs pro Team. Es ist auf schnelles, intensives und aggressives Cricket ausgelegt.",
+    },
+    sources: [
+      { title: "ICC T20 overview", url: "https://www.icc-cricket.com/about/cricket/format" },
+    ],
+    videos: [
+      { title: "What is T20 cricket?", url: "https://www.youtube.com/results?search_query=cricket+t20+explained" },
+    ],
+  },
+  {
+    id: "free-hit",
+    category: "Laws",
+    question: "What is a free hit in cricket?",
+    keywords: ["free hit", "freehit"],
+    answer: {
+      en: "A free hit is awarded after a no-ball, and it means the batter cannot be dismissed by a run-out from the delivery that follows. The batter may score runs, but there is no fielding penalty as long as the delivery is legal.",
+      hi: "फ्री हिट नो-बॉल के बाद दिया जाता है, और इसका मतलब है कि बल्लेबाज को उस डिलीवरी पर रन-आउट द्वारा आउट नहीं किया जा सकता। बल्लेबाज रन ले सकता है, लेकिन अगर डिलीवरी वैध है, तो कोई फील्डिंग पेनाल्टी नहीं होती।",
+      bn: "ফ্রি হিট নো-বলের পর দেওয়া হয়, আর এর মানে হলো ব্যাটারকে পরবর্তী ডেলিভারিতে রান-আউটের মাধ্যমে আউট করা যাবে না। ব্যাটার রান নিতে পারে, কিন্তু ডেলিভারি বৈধ থাকলে ফিল্ডিং পেনাল্টি থাকে না।",
+      ta: "ஃப்ரீ ஹிட் no-ball க்கு பிறகு வழங்கப்படுகிறது; அதாவது பேட்டர் அடுத்த டெலிவரியில் ரன் அவுட் மூலம் அவுட் ஆக முடியாது. பேட்டர் ரன்களை எடுக்கலாம், ஆனால் டெலிவரி சட்டப்படி இருந்தால் ஃபீல்டிங் பினால்டி இருக்காது.",
+      te: "ఫ్రీ హిట్ నో-బాల్ తర్వాత ఇవ్వబడుతుంది. అంటే ఆ తర్వాతి బంతిలో బాటర్‌ను రన్-అవుట్‌తో ఔట్ చేయలేరు. బ్యాటర్ పరుగులు చేయవచ్చు, కానీ బంతి చెల్లుబాటు అయితే ఫీల్డింగ్ పెనాల్టీ ఉండదు.",
+      de: "Ein Free Hit wird nach einem No-Ball gewährt. Der Batter kann bei der folgenden Lieferung nicht durch Run Out aus dem Spiel genommen werden. Er kann Runs erzielen, aber es gibt keine Feldungsstrafe, solange der Ball legal ist.",
+    },
+    sources: [
+      { title: "No-ball and free-hit regulations", url: "https://www.icc-cricket.com/about/cricket/rules-and-regulations/playing-conditions" },
+    ],
+    videos: [
+      { title: "Free hit explained", url: "https://www.youtube.com/results?search_query=cricket+free+hit+explained" },
+    ],
+  },
+  {
+    id: "appeal",
+    category: "Laws",
+    question: "What is an appeal in cricket?",
+    keywords: ["appeal", "lbw appeal", "caught appeal"],
+    answer: {
+      en: "An appeal is when a fielder or the fielding side asks the umpire to consider a dismissal. The umpire decides whether the batter is out based on the evidence available and the laws of the game.",
+      hi: "अपील वह होती है जब फील्डर या फील्डिंग टीम अंपायर से आउट की संभावना पर विचार करने के लिए कहता है। अंपायर उपलब्ध सबूत और खेल के नियमों के आधार पर निर्णय देता है।",
+      bn: "অ্যাপিল হলো যখন ফিল্ডার বা ফিল্ডিং দল আম্পায়ারকে আউটের সম্ভাবনা নিয়ে विचार করার জন্য অনুরোধ করে। আম্পায়ার উপলব্ধ প্রমাণ ও খেলার নিয়মের ভিত্তিতে সিদ্ধান্ত নেন।",
+      ta: "அப்பீல் என்பது ஃபீல்டர் அல்லது ஃபீல்டிங் அணி, அம்பயரை அவுட் குறித்த பரிசீலனைக்கு கோரும் நிலை. அம்பயர் கிடைக்கும் சான்றுகள் மற்றும் விதிகளின் அடிப்படையில் முடிவெடுக்கிறார்.",
+      te: "అప్పీల్ అంటే ఫీల్డర్ లేదా ఫీల్డింగ్ జట్టు అంపైర్‌కు ఔట్ కోసం పరిశీలన కోరటం. అంపైర్ అందుబాటులో ఉన్న సాక్ష్యాలు మరియు నియమాల ఆధారంగా నిర్ణయం తీసుకుంటాడు.",
+      de: "Ein Appeal ist die Bitte eines Felders oder der Feldmannschaft, den Umpire eine mögliche Dismissal zu prüfen. Der Umpire entscheidet anhand der verfügbaren Beweise und der Regeln.",
+    },
+    sources: [
+      { title: "Umpiring and appeals", url: "https://www.lords.org/mcc/the-laws-of-cricket" },
+    ],
+    videos: [
+      { title: "Appeal in cricket explained", url: "https://www.youtube.com/results?search_query=cricket+appeal+explained" },
+    ],
+  },
+  {
+    id: "all-rounder",
+    category: "General",
+    question: "What is an all-rounder in cricket?",
+    keywords: ["all rounder", "all-rounder"],
+    answer: {
+      en: "An all-rounder is a player who contributes with both bat and ball. Good all-rounders can score runs, take wickets, and often provide balance to the team in all phases of the match.",
+      hi: "ऑल-राउंडर वह खिलाड़ी होता है जो बल्ले और गेंद दोनों से योगदान देता है। अच्छे ऑल-राउंडर रन बनाते हैं, विकेट लेते हैं और टीम को पूरे मैच में संतुलन देते हैं।",
+      bn: "অল-রাউন্ডার হলো এমন খেলোয়াড় যিনি ব্যাট ও বোল, দুই দিকেই অবদান রাখেন। ভালো অল-রাউন্ডার রান করেন, উইকেট নেন এবং দলকে সামগ্রিকভাবে ভারসাম্য প্রদান করেন।",
+      ta: "அல்-ரவுண்டர் என்பது பேட்டிங் மற்றும் பந்துவீச்சு இரண்டிலும் பங்களிக்கும் வீரர். நல்ல அல்-ரவுண்டர்கள் ரன்களை சேர்த்து, விக்கெட்டுகளை எடுக்கிறார்கள்.",
+      te: "అల్-రౌండర్ అంటే బ్యాట్ మరియు బంతితో ఇద్దరి వైపులా సహాయం చేసే క్రీడాకారుడు. మంచి అల్-రౌండర్లు రన్స్‌లు అందిస్తారు, వికెట్లు తీస్తారు మరియు జట్టుకు సమతుల్యత ఇవ్వగలరు.",
+      de: "Ein All-Rounder ist ein Spieler, der sowohl mit dem Schläger als auch mit dem Ball beiträgt. Gute All-Rounder können Runs erzielen, Wickets nehmen und dem Team in allen Phasen des Spiels Balance geben.",
+    },
+    sources: [
+      { title: "Player roles in cricket", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "All-rounder explained", url: "https://www.youtube.com/results?search_query=cricket+all+rounder+explained" },
+    ],
+  },
+  {
+    id: "follow-on",
+    category: "Laws",
+    question: "What is a follow-on in cricket?",
+    keywords: ["follow on", "follow-on"],
+    answer: {
+      en: "A follow-on is when the bowling side asks the batting side to bat again immediately after being dismissed for a much lower score in the first innings. It is allowed in Test cricket only under specific conditions.",
+      hi: "फॉलो-ऑन तब होता है जब गेंदबाजी टीम बल्लेबाजी टीम से तुरंत दूसरी पारी खेलने के लिए कहती है, अगर पहली पारी में टीम का स्कोर बहुत कम हो। यह केवल टेस्ट क्रिकेट में कुछ शर्तों के तहत संभव है।",
+      bn: "ফলো-অন হলো যখন বোলিং দল ব্যাটিং দলকে প্রথম ইনিংসে খুব কম স্কোর করার পর সঙ্গে সঙ্গে আবার ব্যাট করতে বলে। এটি শুধুমাত্র টেস্ট ক্রিকেটে নির্দিষ্ট শর্তে সম্ভব।",
+      ta: "ஃபாலோ-ஆன் என்பது பந்துவீசும் அணி, பேட்டிங் அணி முதல் இன்னிங்ஸில் மிகக் குறைந்த ஸ்கோரைப் பெற்ற பிறகு உடனடியாக மீண்டும் பேட்டிங் செய்யும்படி கேட்டுக்கொள்வதாகும். இது டெஸ்ட் கிரிக்கெட்டில் மட்டும் சில நிபந்தனைகளின் கீழ் அனுமதிக்கப்படுகிறது.",
+      te: "ఫాలో-ఆన్ అంటే బౌలింగ్ జట్టు మొదటి ఇన్నింగ్స్‌లో చాలా తక్కువ పరుగులు చేసిన తర్వాత బ్యాటింగ్ జట్టును వెంటనే మళ్లీ బ్యాటింగ్ చేయమని కోరడం. ఇది టెస్ట్ క్రికెట్‌లో మాత్రమే నిర్దిష్ట షరతులపై అనుమతించబడుతుంది.",
+      de: "Ein Follow-On ist, wenn die bowling side das Batting Team auffordert, unmittelbar nach einer viel niedrigeren ersten Innings erneut zu schlagen. Das ist nur im Test Cricket unter bestimmten Bedingungen möglich.",
+    },
+    sources: [
+      { title: "Test match conditions and follow-on", url: "https://www.lords.org/mcc/the-laws-of-cricket" },
+    ],
+    videos: [
+      { title: "Follow-on explained", url: "https://www.youtube.com/results?search_query=cricket+follow+on+explained" },
+    ],
+  },
+  {
+    id: "googly",
+    category: "Bowling",
+    question: "What is a googly in cricket?",
+    keywords: ["googly", "wrong'un", "wrong un"],
+    answer: {
+      en: "A googly is a leg-spin delivery that turns in the opposite direction to what the batter expects. It is a deceptive ball that can surprise a batter who has already set for a conventional leg-break or off-break line.",
+      hi: "गूगल एक लेग-स्पिन गेंद है जो बल्लेबाज के अपेक्षित दिशा के विपरीत मुड़ती है। यह एक भ्रामक गेंद है जो सामान्य लेग-ब्रेक या ऑफ-ब्रेक की उम्मीद में बल्लेबाज को चौंका देती है।",
+      bn: "গুগলি হলো লেগ-স্পিনের এমন ফরা, যা ব্যাটারের প্রত্যাশার বিপরীতে ঘুরে যায়। এটি একটি প্রতারণামূলক বল, যা সাধারণ লেগ-ব্রেক বা অফ-ব্রেকের আশা নিয়ে ব্যাটারকে চমকে দিতে পারে।",
+      ta: "கூக்லி என்பது லெக்-ஸ்பின் பந்தாகும், இது பேட்டரின் எதிர்பார்ப்புக்கு நேர்மாறாக திரும்புகிறது. இது ஒரு ஏமாற்றும் பந்தாகும்.",
+      te: "గుగ్లీ అనేది లెగ్-స్పిన్ బంతి, ఇది బ్యాటర్ ఆశించిన దిశకు విరుద్ధంగా తిరుగుతుంది. ఇది మోసపూరిత బంతి.",
+      de: "Ein Googly ist ein Leg-Spin-Ball, der in die entgegengesetzte Richtung dreht, als der Batter erwartet. Es ist ein irreführender Ball, der den Schlagenden überrascht.",
+    },
+    sources: [
+      { title: "Spin bowling variations", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "Googly explained", url: "https://www.youtube.com/results?search_query=cricket+googly+explained" },
+    ],
+  },
+  {
+    id: "doosra",
+    category: "Bowling",
+    question: "What is a doosra in cricket?",
+    keywords: ["doosra", "doosra ball"],
+    answer: {
+      en: "A doosra is an off-spin variation that turns away from a right-handed batter, even though it is delivered with a finger action that looks similar to an off-break. It is a deceptive ball used to trick the batter into playing the wrong line.",
+      hi: "डूसरा एक ऑफ-स्पिन वैरिएशन है जो दाहिने हाथ के बल्लेबाज से दूर मुड़ती है, भले ही यह वही उंगली की एक्शन से फेंकी जाए जैसी ऑफ-ब्रेक लगती है। यह एक भ्रामक गेंद है जिसका उपयोग बल्लेबाज को गलत लाइन पर खेलने के लिए किया जाता है।",
+      bn: "ডুসরা হলো অফ-স্পিনের একটি ভ্যারিয়েশন, যা ডানহাতি ব্যাটারের কাছ থেকে দূরে ঘুরে যায়, যদিও এটি অফ-ব্রেকের মতো একই আঙুলের অ্যাকশনে ফেলা হয়। এটি একটি প্রতারণামূলক বল, যা ব্যাটারকে ভুল লাইনে খেলার জন্য ব্যবহার করা হয়।",
+      ta: "டூஸ்ரா என்பது ஆஃப்-ஸ்பின் மாறுபாடு, இது வலது கை பேட்டருக்கு அப்பால் திரும்புகிறது, இருப்பினும் அது ஆஃப்-பிரேக்கைப் போலவே விரல் செயலுடன் வீசப்படுகிறது. இது பேட்டரை தவறான கோட்டில் விளையாடச் செய்யும் ஏமாற்று பந்தாகும்.",
+      te: "డూస్రా అనేది ఆఫ్-స్పిన్ వేరియేషన్, ఇది కుడిచేతి బ్యాటర్‌కు మళ్లీ ఎటువంటి తప్పు లైన్‌లో తిరుగుతుంది, అయినప్పటికీ ఆఫ్-బ్రేక్ లాగా అదే యాంగిల్‌తో వేస్తారు. ఇది మోసపూరిత బంతి, బ్యాటర్‌ను తప్పు లైన్‌లో ఆడించేలా చేస్తుంది.",
+      de: "Ein Doosra ist eine Off-Spin-Variante, die von einem rechtshändigen Batter wegdriftet, obwohl sie mit einer ähnlichen Fingeraktion wie ein Off-Break geliefert wird. Es ist ein täuschender Ball, der den Batter auf die falsche Linie lockt.",
+    },
+    sources: [
+      { title: "Spin bowling variations", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "Doosra explained", url: "https://www.youtube.com/results?search_query=cricket+doosra+explained" },
+    ],
+  },
+  {
+    id: "square-cut",
+    category: "Batting",
+    question: "What is a square cut in cricket?",
+    keywords: ["square cut", "cut shot"],
+    answer: {
+      en: "A square cut is a shot played late and wide of the wicket, aimed behind point square on the field. It is a classic attacking stroke for a ball pitched short of a length and outside off stump.",
+      hi: "स्क्वायर कट एक ऐसी शॉट है जिसे देर से और विकेट के बाहर खेला जाता है, प्वाइंट के पीछे की तरफ। यह एक क्लासिक आक्रामक शॉट है जो ऑफ स्टंप से बाहर पिच पर छोटी गेंद पर खेली जाती है।",
+      bn: "স্কয়ার কাট হলো এমন একটি শট, যা দেরিতে ও উইকেটের বাইরে খেলা হয়, পয়েন্টের পিছনে আক্রমণাত্মকভাবে। এটি একটি ক্লাসিক আক্রমণাত্মক স্ট্রোক, সাধারণত অফ স্টাম্পের বাইরে শর্টে παιχνেয় বলের ওপর।",
+      ta: "ஸ்கொயர் கட் என்பது விக்கெட்டுக்கு பக்கவாட்டில், பாயிண்டின் பின்புறத்தில் விளையாடப்படும் ஒரு ஷாட். இது ஒரு கிளாசிக் தாக்குதல் ஸ்ட்ரோக் ஆகும்.",
+      te: "స్క్వేర్ కట్ అనేది వికెట్ వెలుపల, పాయింట్ వెనుకకు ఆడే షాట్. ఇది క్లాసిక్ ఆర్మ్యాటక స్ట్రోక్.",
+      de: "Ein Square Cut ist ein Schlag, der spät und seitlich außerhalb des Wickets gespielt wird und hinter Point in einem rechten Winkel zum Feld geschlagen wird. Es ist ein klassischer Angriffsschlag auf kurze Bälle außerhalb des Off-Stumps.",
+    },
+    sources: [
+      { title: "Batting shots and technique", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "Square cut explained", url: "https://www.youtube.com/results?search_query=cricket+square+cut+explained" },
+    ],
+  },
+  {
+    id: "reverse-sweep",
+    category: "Batting",
+    question: "What is a reverse sweep in cricket?",
+    keywords: ["reverse sweep", "sweep shot"],
+    answer: {
+      en: "A reverse sweep is a batting stroke where the batter uses the opposite side of the bat to hit a ball that is going across them, usually to the off-side field. It is an attacking shot designed to unsettle the bowler and fielding side.",
+      hi: "रिवर्स स्वीप एक ऐसी शॉट है जिसमें बल्लेबाज बैट के विपरीत तरफ से गेंद को खेलता है, जबकि गेंद उनके पार चल रही हो। यह आक्रामक शॉट गेंदबाज और फील्डिंग टीम को असंतुलित करने के लिए खेला जाता है।",
+      bn: "রিভার্স সোয়েপ হলো এমন একটি শট যেখানে ব্যাটার ব্যাটের বিপরীত দিক দিয়ে বলকে আঘাত করেন, যখন বল তাদের পাশ দিয়ে যাচ্ছে। এটি আক্রমণাত্মক শট, যা বোলার ও ফিল্ডিং দলকে অস্বস্তিতে ফেলে।",
+      ta: "ரிவர்ஸ் ஸ்வீப் என்பது பேட்டர் பேட்டின் எதிர் பக்கத்தை பயன்படுத்தி, பந்து அவர்களை கடந்து செல்லும்போது அடிக்கும் ஸ்ட்ரோக். இது தாக்குதல் ஸ்ட்ரோக் ஆகும்.",
+      te: "రివర్స్ స్వీప అంటే బ్యాటర్ బాట్‌కు వ్యతిరేక వైపు ఉపయోగించి బంతిని ఆడే షాట్. ఇది ఆক্রমణాత్మకమైన షాట్.",
+      de: "Ein Reverse Sweep ist ein Schlag, bei dem der Batter mit der entgegengesetzten Seite des Schlägers auf einen Ball spielt, der über ihn hinwegzieht. Es ist ein aggressiver Schlag, der Bowler und Feldmannschaft unter Druck setzt.",
+    },
+    sources: [
+      { title: "Batting shot progression", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "Reverse sweep explained", url: "https://www.youtube.com/results?search_query=cricket+reverse+sweep+explained" },
+    ],
+  },
+  {
+    id: "slip-cordon",
+    category: "Fielding",
+    question: "What is a slip cordon in cricket?",
+    keywords: ["slip cordon", "slips", "slip fielders"],
+    answer: {
+      en: "A slip cordon is the group of fielders placed behind the batter, usually in the slips and gully positions. They are positioned to catch edges and create wicket-taking chances when the batter edges the ball outside off stump.",
+      hi: "स्लिप कॉर्डन वे फील्डर होते हैं जो बल्लेबाज के पीछे स्थित होते हैं, सामान्यतः स्लिप और गली क्षेत्रों में। वे एज़ से कैच लेने और विकेट लेने के मौके बनाने के लिए रखे जाते हैं।",
+      bn: "স্লিপ কর্ডন হলো ব্যাটারের পেছনে রাখা ফিল্ডারদের দল, সাধারণত স্লিপ ও গুলি পজিশনে। তারা এজের ক্যাচ ধরতে এবং উইকেট নেওয়ার সুযোগ তৈরি করতে রাখা হয়।",
+      ta: "ஸ்லிப் கார்டன் என்பது பேட்டரின் பின்னால் நிற்கும் ஃபீல்டர்களின் தொகுப்பு, பொதுவாக ஸ்லிப்சுகள் மற்றும் குல்லி நிலைகளில். அவர்கள் எட்ஜ்களைப் பிடிக்கவும், விக்கெட்டை எடுக்கவும் இடம் ஏற்படுத்துகிறார்கள்.",
+      te: "స్లిప్ కార్డన్ అంటే బ్యాటర్ వెనుక నిలిచే ఫీల్డర్ల సమూహం, సాధారణంగా స్లిప్స్ మరియు గల్లీ పొజిషన్లలో. వారు ఎడ్జ్‌ల నుండి క్యాచ్ తీసేందుకు, వికెట్ అవకాశాలను సృష్టించేందుకు ఉంచుతారు.",
+      de: "Ein Slip Cordon ist die Gruppe der Feldspieler hinter dem Batter, meist in den Positionen Slip und Gully. Sie stehen bereit, Netzkanten zu fangen und Wicket-Chancen zu schaffen.",
+    },
+    sources: [
+      { title: "Fielding structure and slip positions", url: "https://www.bbc.co.uk/sport/cricket" },
+    ],
+    videos: [
+      { title: "Slip cordon explained", url: "https://www.youtube.com/results?search_query=cricket+slip+cordon+explained" },
+    ],
+  },
 ];
 
 export const unsupportedKnowledgeEntry: KnowledgeEntry = {
@@ -479,9 +899,40 @@ export function getCoachReply(input: string, language: SupportedLanguage) {
     };
   }
 
-  const match = knowledgeEntries.find((entry) =>
-    entry.keywords.some((keyword) => normalized.includes(keyword.toLowerCase())),
-  );
+  const scoredMatches = knowledgeEntries
+    .map((entry) => {
+      let bestScore = 0;
+
+      for (const keyword of entry.keywords) {
+        const lowerKeyword = keyword.toLowerCase();
+
+        if (normalized === lowerKeyword) {
+          bestScore = Math.max(bestScore, 200);
+          continue;
+        }
+
+        if (normalized.includes(lowerKeyword)) {
+          bestScore = Math.max(bestScore, 120 + lowerKeyword.length);
+          continue;
+        }
+
+        const keywordWords = lowerKeyword.split(/\s+/).filter(Boolean);
+        const normalizedWords = normalized.split(/\s+/).filter(Boolean);
+
+        if (keywordWords.length > 1) {
+          const coverage = keywordWords.filter((word) => normalizedWords.includes(word)).length;
+          if (coverage === keywordWords.length) {
+            bestScore = Math.max(bestScore, 90 + lowerKeyword.length);
+          }
+        }
+      }
+
+      return { entry, score: bestScore };
+    })
+    .filter((result) => result.score > 0)
+    .sort((a, b) => b.score - a.score || a.entry.keywords.length - b.entry.keywords.length);
+
+  const match = scoredMatches[0]?.entry;
 
   if (!match) {
     return {

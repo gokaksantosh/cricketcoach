@@ -111,14 +111,14 @@ export async function getGeminiCoachReply(
             text: {
               mimeType: "APPLICATION_JSON",
               schema: {
-                type: "OBJECT",
+                type: "object",
                 properties: {
                   classification: {
-                    type: "STRING",
+                    type: "string",
                     enum: ["cricket", "off_topic", "unclear"],
                   },
-                  answer: { type: "STRING" },
-                  sourceIds: { type: "ARRAY", items: { type: "STRING" } },
+                  answer: { type: "string" },
+                  sourceIds: { type: "array", items: { type: "string" } },
                 },
                 required: ["classification", "answer", "sourceIds"],
               },

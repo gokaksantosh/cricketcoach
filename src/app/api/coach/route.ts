@@ -5,6 +5,7 @@ import {
   supportedLanguages,
 } from "@/lib/cricketKnowledge";
 import {
+  GeminiApiError,
   getAiSetupMessage,
   getAiUnavailableMessage,
   getGeminiCoachReply,
@@ -105,10 +106,13 @@ export async function POST(request: Request) {
       responseType: generated.classification === "unclear" ? "clarification" : "ai",
     });
   } catch (error) {
-    console.error(
-      "Gemini coach request failed:",
-      error instanceof Error ? error.message : "Unknown error",
-    );
+    const diagnosticCode =
+      error instanceof GeminiApiError
+        ? error.diagnosticCode
+        : error instanceof Error && error.name === "TimeoutError"
+          ? "timeout"
+          : "network_or_provider_error";
+    console.error("Gemini coach request failed:", diagnosticCode);
 
     const context = findRelevantKnowledgeEntries(question, 1)[0];
     return NextResponse.json({
@@ -121,6 +125,7 @@ export async function POST(request: Request) {
       matchedId: "ai-unavailable",
       known: false,
       responseType: "unavailable",
+      diagnosticCode,
     });
   }
 }

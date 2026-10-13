@@ -16,6 +16,13 @@ export type GeminiCoachResult = {
   category: KnowledgeEntry["category"];
 };
 
+export class GeminiApiError extends Error {
+  constructor(readonly diagnosticCode: string) {
+    super(diagnosticCode);
+    this.name = "GeminiApiError";
+  }
+}
+
 type GeminiPayload = {
   candidates?: Array<{
     content?: {
@@ -131,7 +138,7 @@ export async function getGeminiCoachReply(
   );
 
   if (!response.ok) {
-    throw new Error(`Gemini API returned status ${response.status}`);
+    throw new GeminiApiError(`http_${response.status}`);
   }
 
   const payload = (await response.json()) as GeminiPayload;
@@ -139,10 +146,15 @@ export async function getGeminiCoachReply(
     ?.map((part) => part.text ?? "")
     .join("")
     .trim();
-  if (!outputText) throw new Error("Gemini returned no answer");
+  if (!outputText) throw new GeminiApiError("empty_response");
 
-  const parsed: unknown = JSON.parse(outputText);
-  if (!parsed || typeof parsed !== "object") throw new Error("Gemini response was invalid");
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(outputText);
+  } catch {
+    throw new GeminiApiError("invalid_json_response");
+  }
+  if (!parsed || typeof parsed !== "object") throw new GeminiApiError("invalid_response");
   const result = parsed as {
     classification?: unknown;
     answer?: unknown;
@@ -153,13 +165,13 @@ export async function getGeminiCoachReply(
     typeof result.answer !== "string" ||
     !Array.isArray(result.sourceIds)
   ) {
-    throw new Error("Gemini response did not match the expected format");
+    throw new GeminiApiError("invalid_response_schema");
   }
 
   const classification = result.classification as GeminiClassification;
   const answer = result.answer.trim().slice(0, 4000);
   if (classification !== "off_topic" && !answer) {
-    throw new Error("Gemini returned an empty answer");
+    throw new GeminiApiError("empty_answer");
   }
 
   const allowedIds = new Set(relevantEntries.map((entry) => entry.id));

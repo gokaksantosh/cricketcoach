@@ -61,7 +61,8 @@ export async function POST(request: Request) {
     });
   }
 
-  if (!process.env.GEMINI_API_KEY?.trim()) {
+  const geminiFreeTierEnabled = process.env.GEMINI_FREE_TIER_ENABLED === "true";
+  if (!geminiFreeTierEnabled || !process.env.GEMINI_API_KEY?.trim()) {
     return NextResponse.json({
       answer: getAiSetupMessage(language),
       question,

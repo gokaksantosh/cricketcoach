@@ -24,6 +24,8 @@ type GeminiPayload = {
   }>;
 };
 
+const freeTierGeminiModel = "gemini-3.8-flash";
+
 const offTopicMessages: Record<SupportedLanguage, string> = {
   en: "This question doesn't appear to be related to cricket, so I can't answer it as CricketCoach. I can help with cricket laws, skills, training, and match strategy.",
   hi: "यह सवाल क्रिकेट से संबंधित नहीं लगता, इसलिए CricketCoach के रूप में इसका जवाब नहीं दे सकता। मैं क्रिकेट के नियमों, कौशल, अभ्यास और मैच रणनीति में मदद कर सकता हूँ।",
@@ -70,11 +72,6 @@ export async function getGeminiCoachReply(
   const apiKey = process.env.GEMINI_API_KEY?.trim();
   if (!apiKey) throw new Error("Gemini API key is not configured");
 
-  const model = process.env.GEMINI_MODEL?.trim() || "gemini-3.8-flash";
-  if (!/^[a-z0-9][a-z0-9.-]{2,80}$/i.test(model)) {
-    throw new Error("Gemini model name is invalid");
-  }
-
   const relevantEntries = findRelevantKnowledgeEntries(question, 5);
   const localContext = relevantEntries.map((entry) => ({
     id: entry.id,
@@ -97,7 +94,7 @@ export async function getGeminiCoachReply(
   ].join("\n");
 
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+    `https://generativelanguage.googleapis.com/v1beta/models/${freeTierGeminiModel}:generateContent`,
     {
       method: "POST",
       headers: {

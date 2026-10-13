@@ -159,12 +159,14 @@ Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey
 
 ```dotenv
 GEMINI_API_KEY=your_key_here
-GEMINI_MODEL=gemini-3.8-flash
+GEMINI_FREE_TIER_ENABLED=false
 ```
 
 Restart `npm run dev` after changing environment variables. Never put the key in browser code, a `NEXT_PUBLIC_` variable, Git, or a message. `.env.local` is ignored by Git; `.env.example` contains placeholders only.
 
-For Vercel, open the `cricketcoach` project, go to **Settings > Environment Variables**, add `GEMINI_API_KEY` with the key as its value, select **Production** (and **Preview** if wanted), save, then redeploy the latest deployment. `GEMINI_MODEL` is optional; the default is `gemini-3.8-flash`.
+For Vercel, open the `cricketcoach` project, go to **Settings > Environment Variables**, add `GEMINI_API_KEY` with the key as its value, and add `GEMINI_FREE_TIER_ENABLED` with value `false`. Select **Production** (and **Preview** if wanted) and redeploy. To ensure Gemini is not called at all, leave this flag set to `false` or unset.
+
+To enable only the intended free-tier model, first confirm in Google AI Studio that the API-key project is on the **Free** tier and has no billing account linked. Do not set up paid billing, buy credits, enable auto-reload, or use Google Search grounding. Then change `GEMINI_FREE_TIER_ENABLED` to `true` in Vercel and redeploy. The server is pinned to `gemini-3.8-flash`; there is no environment variable that can switch it to a paid model. If free quota runs out, requests should fail closed rather than switching to a paid tier. Google may change its free-tier quotas and model pricing; the app cannot override the billing status of the Google project, so never link this project to a paid billing account if zero API spend is required.
 
 The coach answers high-confidence matches from the local cricket knowledge first. Other questions go to Gemini for cricket/off-topic/unclear classification. Ambiguous questions should get a clarification rather than an off-topic refusal. Keep Gemini prompts free of sensitive personal information: Google's free tier may use submitted content to improve its products, and free-tier rate limits are limited and can change. Check the [current Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing) and [rate limits](https://ai.google.dev/gemini-api/docs/rate-limits) before sharing the app widely. When the key is absent, local answers still work and unknown questions receive a setup message.
 

@@ -149,13 +149,26 @@ This creates a public URL that forwards to your local app for quick demos.
 
 ## Environment settings
 
-Create a local environment file if you want to add future API or deployment settings:
+### Enable Gemini coaching
 
 ```bash
 cp .env.example .env.local
 ```
 
-Example contents are shown in [.env.example](.env.example).
+Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey), then put it in `.env.local`:
+
+```dotenv
+GEMINI_API_KEY=your_key_here
+GEMINI_MODEL=gemini-3.8-flash
+```
+
+Restart `npm run dev` after changing environment variables. Never put the key in browser code, a `NEXT_PUBLIC_` variable, Git, or a message. `.env.local` is ignored by Git; `.env.example` contains placeholders only.
+
+For Vercel, open the `cricketcoach` project, go to **Settings > Environment Variables**, add `GEMINI_API_KEY` with the key as its value, select **Production** (and **Preview** if wanted), save, then redeploy the latest deployment. `GEMINI_MODEL` is optional; the default is `gemini-3.8-flash`.
+
+The coach answers high-confidence matches from the local cricket knowledge first. Other questions go to Gemini for cricket/off-topic/unclear classification. Ambiguous questions should get a clarification rather than an off-topic refusal. Keep Gemini prompts free of sensitive personal information: Google's free tier may use submitted content to improve its products, and free-tier rate limits are limited and can change. Check the [current Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing) and [rate limits](https://ai.google.dev/gemini-api/docs/rate-limits) before sharing the app widely. When the key is absent, local answers still work and unknown questions receive a setup message.
+
+The route rejects questions over 1,500 characters and limits generated output, but it does not yet have a distributed per-user rate limiter. Provider quotas are not abuse protection. Before promoting the endpoint broadly, add a shared rate-limit store (for example, Redis) or a platform firewall rule; otherwise a caller can exhaust the free project's Gemini quota.
 
 ## Project structure
 

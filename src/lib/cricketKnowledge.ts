@@ -903,16 +903,10 @@ export const unsupportedKnowledgeEntry: KnowledgeEntry = {
   videos: [],
 };
 
-export function getCoachReply(input: string, language: SupportedLanguage) {
+export function findRelevantKnowledgeEntries(input: string, limit = 5) {
   const normalized = input.trim().toLowerCase();
 
-  if (!normalized) {
-    return {
-      entry: unsupportedKnowledgeEntry,
-      answer: unsupportedKnowledgeEntry.answer[language] ?? unsupportedKnowledgeEntry.answer.en,
-      known: false,
-    };
-  }
+  if (!normalized) return [];
 
   const scoredMatches = knowledgeEntries
     .map((entry) => {
@@ -952,7 +946,11 @@ export function getCoachReply(input: string, language: SupportedLanguage) {
         a.entry.keywords.length - b.entry.keywords.length,
     );
 
-  const match = scoredMatches[0]?.entry;
+  return scoredMatches.slice(0, limit).map((result) => result.entry);
+}
+
+export function getCoachReply(input: string, language: SupportedLanguage) {
+  const match = findRelevantKnowledgeEntries(input, 1)[0];
 
   if (!match) {
     return {

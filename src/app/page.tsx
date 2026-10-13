@@ -29,6 +29,7 @@ type ChatMessage = {
   type: "user" | "coach";
   text: string;
   category?: string;
+  responseType?: "local" | "ai" | "off_topic" | "clarification" | "unavailable";
   sources?: Array<{ title: string; url: string }>;
   videos?: Array<{ title: string; url: string }>;
 };
@@ -90,6 +91,7 @@ export default function Home() {
       const payload = (await response.json()) as {
         answer: string;
         category: string;
+        responseType?: ChatMessage["responseType"];
         sources?: Array<{ title: string; url: string }>;
         videos: Array<{ title: string; url: string }>;
         known?: boolean;
@@ -101,11 +103,12 @@ export default function Home() {
           type: "coach",
           text: payload.answer,
           category: payload.category,
+          responseType: payload.responseType,
           sources: payload.sources,
           videos: payload.videos,
         },
       ]);
-    } catch (error) {
+    } catch {
       const fallback = getCoachReply(trimmed, language);
 
       setMessages((current) => [
@@ -114,6 +117,7 @@ export default function Home() {
           type: "coach",
           text: fallback.answer,
           category: fallback.entry.category,
+          responseType: fallback.known ? "local" : "unavailable",
           sources: fallback.entry.sources,
           videos: fallback.entry.videos,
         },
@@ -274,7 +278,19 @@ export default function Home() {
                   >
                     <div className="flex items-center justify-between gap-4">
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
-                        {message.type === "user" ? "You" : isLatestAnswer ? "Coach answer" : "Coach"}
+                        {message.type === "user"
+                          ? "You"
+                          : message.responseType === "off_topic"
+                            ? "Outside cricket"
+                            : message.responseType === "clarification"
+                              ? "One detail needed"
+                              : message.responseType === "ai"
+                                ? "AI cricket coach"
+                                : message.responseType === "unavailable"
+                                  ? "Local knowledge only"
+                                  : isLatestAnswer
+                                    ? "Coach answer"
+                                    : "Coach"}
                       </p>
                       {isLatestAnswer && message.category ? (
                         <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1 text-xs text-emerald-200">

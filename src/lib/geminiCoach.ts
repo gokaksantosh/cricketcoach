@@ -72,6 +72,29 @@ export function getAiUnavailableMessage(language: SupportedLanguage) {
   return unavailableMessages[language];
 }
 
+function parseJsonObject(outputText: string): unknown {
+  const trimmed = outputText.trim();
+  const candidates = [trimmed];
+  const fencedJson = trimmed.match(/```(?:json)?\s*([\s\S]*?)\s*```/i)?.[1];
+  if (fencedJson) candidates.push(fencedJson.trim());
+
+  const firstBrace = trimmed.indexOf("{");
+  const lastBrace = trimmed.lastIndexOf("}");
+  if (firstBrace >= 0 && lastBrace > firstBrace) {
+    candidates.push(trimmed.slice(firstBrace, lastBrace + 1));
+  }
+
+  for (const candidate of candidates) {
+    try {
+      return JSON.parse(candidate);
+    } catch {
+      continue;
+    }
+  }
+
+  throw new GeminiApiError("invalid_json_response");
+}
+
 export async function getGeminiCoachReply(
   question: string,
   language: SupportedLanguage,
@@ -148,12 +171,7 @@ export async function getGeminiCoachReply(
     .trim();
   if (!outputText) throw new GeminiApiError("empty_response");
 
-  let parsed: unknown;
-  try {
-    parsed = JSON.parse(outputText);
-  } catch {
-    throw new GeminiApiError("invalid_json_response");
-  }
+  const parsed = parseJsonObject(outputText);
   if (!parsed || typeof parsed !== "object") throw new GeminiApiError("invalid_response");
   const result = parsed as {
     classification?: unknown;
